@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>mrozanski (Mariano's Blog)</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+       function toggleMenu() {
+            const menu = document.querySelector('.header-nav');
+            console.log("Menu toggled"); 
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-row">
+                <div class="title">
+                    <h1><a href="/">mrozanski</a></h1>
+                </div>
+                
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <nav class="header-nav">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="byline">
+                <p>Software experiments, automation notes, and detours into software quirks and design lessons</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="content main-container">
+        <div class="homepage-content">
+            <!-- This will be your homepage content -->
+        </div>
+        
+        <article class="latest-post">
+            <h2><a href="/posts/sample-post/">Sample Blog Post Title</a></h2>
+            
+            <div class="post-content">
+                <h4 id="by-mariano-rozanski">By <a href="/about/">Mariano Rozanski</a></h4>
+                <p>This is a sample blog post to demonstrate the layout and styling. You can replace this content with your own posts.</p>
+                <p>The template maintains the clean, minimalist design of the original ZenHabits theme while being customized for your blog.</p>
+                <p>Key features of this template:</p>
+                <ol>
+                    <li><strong>Clean typography</strong> - Easy to read fonts and proper spacing</li>
+                    <li><strong>Responsive design</strong> - Works well on all devices</li>
+                    <li><strong>Minimalist layout</strong> - Focus on content without distractions</li>
+                    <li><strong>Customizable styling</strong> - Easy to modify colors, fonts, and layout</li>
+                </ol>
+                <p>You can customize the colors, fonts, and layout by editing the CSS file. The template is ready for you to add your own content and styling preferences.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>            
+        <div class="wide-container">
+            <div class="join-cta">
+                <h2>Connect</h2>
+                <ul>
+                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,906 @@
+/*
+Theme Name: mrozanski-blog
+Theme URI: https://mrozanski.github.io/
+Author: Mariano Rozanski
+Author URI: https://mrozanski.github.io/
+Description: A minimalist, content-focused blog theme based on ZenHabits design.
+Version: 1.0
+License: Uncopyrighted
+*/
+
+/* 
+Reset Stylesheet
+*/
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 2px solid #d3d3d3;
+    transition: border-color 0.6s ease, color 0.6s ease;
+}
+
+/* change colors to suit your needs */
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+/* change colors to suit your needs */
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* change border color to suit your needs */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+/* end css reset */
+
+/* ==========================
+    FONT IMPORTS
+   ========================== */
+
+/* Google Fonts - Manrope */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* WF Visual Sans Font Import */
+@font-face {
+  font-family: 'WF Visual Sans';
+  src: url('https://dhygzobemt712.cloudfront.net/Fonts/VF/WFVisualSansVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================
+    GLOBAL STYLES
+   ========================== */
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.25em;
+    font-weight: 300;
+}
+
+/* Paragraph Styling */
+p {
+    line-height: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* List styling for default lists (applies to blog posts) */
+ul,
+ol {
+    line-height: 1.5em;
+    padding-left: 25px;
+    list-style-position: outside;
+    margin-bottom: 1.7em;
+}
+
+ul li,
+ol li {
+    margin-bottom: -0.2em;
+    padding-left: 5px;
+}
+
+/* Page-specific list styling */
+.page p strong,
+.page ul li strong,
+.page ol li strong {
+    font-weight: 500;
+}
+
+.page ul,
+.page ol {
+    line-height: 1.5em;
+    padding-left: 30px;
+    list-style-position: outside;
+    margin-bottom: 1.2em;
+}
+
+.page ul li,
+.page ol li {
+    margin-bottom: 0.2em;
+    padding-left: 5px;
+}
+
+/* Other Styles */
+p.inactive {
+    color: #aaa;
+}
+
+a:link,
+a:visited {
+    color: #333;
+    border-bottom: 2px solid #d3d3d3;
+}
+
+a:hover {
+    color: #333;
+    border-bottom: 2px solid #666666;
+}
+
+/* heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.25;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 2.5em 0 1.25em 0;
+    text-align: center;
+}
+
+h2 a {
+    border-bottom: none !important;
+    color: inherit;
+    transition: color 0.8s ease;
+}
+
+h2 a:hover {
+    color: #b0b0b0;
+    text-decoration: none;
+}
+
+.join-cta h2, .subscribe-cta {
+    font-weight: 400;
+}
+
+/* subtitles */
+h3 {
+    font-size: 1.5em;
+    line-height: 1.35em;
+    margin: 1.5em 0 1em 0;
+    text-align: center;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+/* used for "edit" link only visible to site owner/writers */
+h5 {
+    margin: 2.5em 0;
+}
+
+/* author credits */
+h6 {
+    font-size: 1.15em;
+    line-height: 1.3em;
+    margin: 1.1em 0 1.2em 0;
+    letter-spacing: .1em;
+    text-align: center;
+    -webkit-opacity: 0.30;
+    -moz-opacity: 0.30;
+    opacity: 0.30;
+    -webkit-transition: opacity 3s linear;
+    -moz-transition: opacity 3s linear;
+    -ms-transition: opacity 3s linear;
+    -o-transition: opacity 3s linear;
+    transition: opacity 3s linear;
+}
+
+/* fades author credit back in on hover */
+h6:hover {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+}
+
+h6 strong {
+    font-weight: 400;
+}
+
+img,
+a img {
+    border: 0 !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+}
+
+/* Styles specifically for images within .image-link */
+.image-link {
+    display: inline-block;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-bottom: none !important;
+}
+
+/* Ensures no extra styling on the image itself */
+.image-link img {
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: filter 0.5s ease;
+}
+
+/* Darken effect on hover */
+.image-link:hover img {
+    filter: brightness(0.6);
+}
+
+/* container for body */
+.container {
+    overflow: hidden;
+    max-width: 32em;
+    margin: 0 auto;
+    padding: 0 2.5em;
+}
+
+/* wider container for header and footer elements */
+.wide-container {
+    max-width: 70em;
+    margin: 0 auto;
+    padding: 0 2.5em;
+    overflow: hidden;
+}
+
+/* Header and navigation */
+header {
+    border-bottom: 1px solid #f5f5f5;
+    text-transform: none;
+}
+
+header .wide-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+}
+ul.menu {
+    margin-bottom: 0;
+}
+/* First row: title and nav */
+header .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Control width and spacing of title and nav */
+header .title {
+    flex: 0 0 auto;
+    text-align: left;
+}
+
+header .header-nav {
+    flex: 1;
+    text-align: right;
+    margin-left: 20px;
+}
+
+/* Second row: byline */
+header .byline {
+    width: 100%;
+    text-align: center;
+}
+
+header .byline p {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+/* Center the navigation menu items */
+header .header-nav .menu {
+    display: inline-flex;
+    gap: 20px;
+}
+
+/* Individual menu items */
+header .header-nav .menu li {
+    display: inline;
+}
+
+/* Menu link styles with smooth transition */
+header .header-nav .menu li a {
+    color: #848484;
+    text-decoration: none;
+    border-bottom: none;
+    transition: color 0.6s ease;
+}
+
+header .header-nav .menu li a:hover {
+    color: #333;
+}
+
+/* Default style for "mrozanski" (dark) and "blog" (light) */
+header .title h1 a {
+    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    transition: color 0.7s ease;
+}
+
+header .byline h1 a {
+    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #aaa;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    transition: color 0.7s ease;
+}
+
+/* Hover styles for "mrozanski" and "blog" */
+header .title h1 a:hover {
+    color: #aaa;
+}
+
+header .byline h1 a:hover {
+    color: #333;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 2.5em 0;
+}
+
+footer h1 {
+    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 1.5em;
+}
+
+footer h1.grey {
+    color: #aaa;
+}
+
+footer h2 {
+    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 1em;
+}
+
+footer a {
+    border-bottom: none !important;
+    color: inherit;
+}
+
+footer a:hover {
+    border-bottom: none;
+    color: #b0b0b0;
+}
+
+footer>.wide-container>.join-cta {
+    text-align: center;
+}
+
+footer>.wide-container>.join-cta, .subscribe-cta {
+    margin-bottom: 8em;
+}
+
+footer>.wide-container>.join-cta h2, .subscribe-cta h2 {
+    margin: 0;
+    padding-bottom: .5em;
+}
+
+footer>.wide-container>.join-cta>ul {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+}
+
+footer>.wide-container>.join-cta>ul li {
+    display: inline;
+    padding: 0 20px;
+}
+
+footer>.wide-container>.join-cta>ul li a {
+    color: #777;
+    text-transform: lowercase;
+}
+
+/* post styles */
+.post h4 {
+    margin-bottom: 3.5em;
+    font-size: 14px;
+    color: #aaa;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.post h4 a,
+.post h4 a:visited {
+    color: #aaa;
+    border-bottom: #fff;
+}
+
+.post h4 a:hover {
+    color: #333;
+}
+
+.post strong {
+    font-weight: 400;
+}
+
+.post a:link,
+.post a:visited {
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid #e2e2e2;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+}
+
+.post a:hover {
+    border-color: #666666;
+}
+
+.post ul {
+    list-style-type: disc;
+    padding: .1em .0 0 1.1em;
+    margin-top: .5em;
+}
+
+.post ol {
+    list-style-type: decimal;
+    padding: .1em 0 0 1.2em;
+    margin-top: .5em;
+}
+
+.post blockquote {
+    border-left: 2px solid #e2e2e2;
+    margin: 2.5em 0;
+    padding: .8em 1.5em .2em 1.5em;
+    font-style: italic;
+    color: #555;
+}
+
+.post blockquote cite {
+    color: #aaa;
+    font-style: none;
+}
+
+/* line at bottom of post */
+.home_bottom {
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 2em;
+    line-height: 2.5em;
+    color: #aaa;
+}
+
+/* previous & next posts at bottom */
+.navigation {
+    margin: 3.5em 0 3em 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.navigation p {
+    color: #aaa;
+}
+
+.navigation p.previous-post {
+    width: 50%;
+    font-size: 0.9em;
+    font-weight: 400;
+    padding-right: 25px;
+}
+
+.navigation p.next-post {
+    width: 50%;
+    font-size: 0.9em;
+    font-weight: 400;
+    text-align: right;
+    padding-left: 25px;
+}
+
+.main-container {
+    max-width: 600px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+}
+
+.simple-container {
+    max-width: 800px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+}
+
+.page-content img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+blockquote,
+.post blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 2px solid #ddd;
+    padding-top: 15px;
+    padding-bottom: 3px;
+    padding-left: 18px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.page-content blockquote p {
+    line-height: 1.6em;
+    font-style: italic;
+    color: #555;
+}
+
+/* ==========================
+   Homepage Styles 
+   ========================== */
+
+.latest-post h4 {
+    margin-bottom: 3.5em;
+    font-size: 14px;
+    color: #aaa;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+/* ==========================
+   RESPONSIVE MENU FOR SMALL SCREENS
+   ========================== */
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .hamburger-menu span {
+        background-color: #333;
+        height: 3px;
+        width: 25px;
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header-nav {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background-color: #f2f2f2;
+        position: absolute;
+        width: 47%;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-nav.active {
+        display: flex !important;
+    }
+
+    .header-nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px;
+        width: 90%;
+        text-align: center;
+        gap: 0px !important;
+    }
+
+    .header-nav ul li {
+        margin: 5px 0;
+        width: 100%;
+        padding: 5px 0 5px 0;
+        margin: 5px 0 5px 0;
+        gap: 0px !important;
+    }
+
+    .header-nav ul li a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        padding: 8px 0;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        gap: 0px !important;
+    }
+
+    .header-nav ul li a:hover {
+        background-color: #eaeaea;
+    }
+
+    /* Header adjustments for smaller screens */
+    header .title h1 a {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    header .byline p {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+/* for iPad-sized devices */
+@media only screen and (max-device-width: 1024px) {
+    .wide-container {
+        max-width: 70em;
+        margin: 0 auto;
+        padding: 0 1.5em;
+        overflow: hidden;
+    }
+
+    header .header-nav .menu li {
+        display: inline;
+        padding: 0 10px;
+    }
+}
+
+/* for narrower browsers */
+@media screen and (max-width: 800px) {
+    .wide-container,
+    .container {
+        max-width: 70em;
+        margin: 0 auto;
+        padding: 0 1.5em;
+        overflow: hidden;
+    }
+
+    h2,
+    h3,
+    h3,
+    h5,
+    h6,
+    .month h4,
+    p.search-title {
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin: 2em 0 1em 0;
+    }
+
+    .join-cta h2 {
+        text-align:center;
+    }
+}
+
+/* for iPhone-sized devices */
+@media only screen and (max-device-width: 480px) {
+    h2, h3, h3, h5, h6, .month h4, p.search-title {
+        text-align:center;
+    }
+    header .byline {
+        display:none;
+    }
+    header .header-row {
+        flex-wrap: wrap;
+    }
+    header .title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    header .header-nav {
+        width: 100%;
+        text-align: center;
+    }
+    header .title h1 {
+        text-align: center;
+    }
+    header .header-nav .menu li {
+        display: inline;
+        padding: 0 5px;
+    }
+}
+
+@media print {
+    body {
+        font-family: Helvetica, sans-serif;
+        font-size: 14px;
+        background: white;
+        color: black;
+        margin: 10;
+        width: auto;
+    }
+
+    .container,
+    .wide-container {
+        display: block;
+    }
+
+    header .header-nav,
+    .all_posts,
+    .subscribe,
+    footer {
+        display: none;
+    }
+}
