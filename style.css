@@ -8,6 +8,15 @@ Version: 1.0
 License: Uncopyrighted
 */
 
+/* CSS HEX */
+:root {
+    --jet: #353535ff;
+    --caribbean-current: #3c6e71ff;
+    --white: #ffffffff;
+    --platinum: #d9d9d9ff;
+    --indigo-dye: #284b63ff;
+}
+
 /* 
 Reset Stylesheet
 */
@@ -212,10 +221,13 @@ select {
 body {
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     background-color: #ffffff;
-    color: #333;
+    color: #2d2d2d;
     font-size: 18px;
     line-height: 1.25em;
-    font-weight: 300;
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Paragraph Styling */
@@ -291,8 +303,9 @@ h6 {
 
 h2 {
     font-size: 2em;
-    margin: 2.5em 0 1.25em 0;
-    text-align: center;
+    font-weight: 600;
+    margin: 1em 0;
+    text-align: left;
 }
 
 h2 a {
@@ -390,29 +403,36 @@ a img {
 /* container for body */
 .container {
     overflow: hidden;
-    max-width: 32em;
+    max-width: 45em;
     margin: 0 auto;
     padding: 0 2.5em;
 }
 
 /* wider container for header and footer elements */
 .wide-container {
-    max-width: 70em;
+    max-width: 45em;
     margin: 0 auto;
-    padding: 0 2.5em;
+    padding-bottom: 0;
     overflow: hidden;
 }
 
 /* Header and navigation */
 header {
-    border-bottom: 1px solid #f5f5f5;
+    border-top: 2px solid var(--indigo-dye);
+    border-bottom: 1px solid var(--platinum);
     text-transform: none;
+    background-color: var(--white);
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 header .wide-container {
     display: flex;
     flex-direction: column;
-    padding: 20px 10px;
 }
 ul.menu {
     margin-bottom: 0;
@@ -438,24 +458,27 @@ header .header-nav {
 }
 
 /* Second row: byline */
-header .byline {
+.tagline {
     width: 100%;
+    padding: 1em 0;
     text-align: center;
 }
 
-header .byline p {
+.tagline p {
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    font-size: 16px;
+    font-size: .9rem;
     color: #666;
     margin: 0;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.4;
+    /* font-style: italic; */
 }
 
 /* Center the navigation menu items */
 header .header-nav .menu {
     display: inline-flex;
-    gap: 20px;
+    gap: 1em;
+    font-size: 1rem;
 }
 
 /* Individual menu items */
@@ -465,7 +488,8 @@ header .header-nav .menu li {
 
 /* Menu link styles with smooth transition */
 header .header-nav .menu li a {
-    color: #848484;
+    color: var(--caribbean-current);
+    font-weight: 500;
     text-decoration: none;
     border-bottom: none;
     transition: color 0.6s ease;
@@ -476,7 +500,7 @@ header .header-nav .menu li a:hover {
 }
 
 /* Default style for "mrozanski" (dark) and "blog" (light) */
-header .title h1 a {
+header .title {
     font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     color: #333;
     font-weight: 500;
@@ -487,44 +511,15 @@ header .title h1 a {
     padding: 0;
     white-space: nowrap;
     transition: color 0.7s ease;
-}
-
-header .byline h1 a {
-    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    color: #aaa;
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    transition: color 0.7s ease;
-}
-
-/* Hover styles for "mrozanski" and "blog" */
-header .title h1 a:hover {
-    color: #aaa;
-}
-
-header .byline h1 a:hover {
-    color: #333;
 }
 
 /* footer */
 footer {
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: var(--indigo-dye);
     padding: 2.5em 0;
-}
-
-footer h1 {
-    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    font-size: 1.5em;
-}
-
-footer h1.grey {
-    color: #aaa;
+    color: #fff;
+    flex-shrink: 0;
 }
 
 footer h2 {
@@ -532,47 +527,29 @@ footer h2 {
     font-size: 1em;
 }
 
-footer a {
-    border-bottom: none !important;
-    color: inherit;
-}
 
-footer a:hover {
-    border-bottom: none;
-    color: #b0b0b0;
-}
-
-footer>.wide-container>.join-cta {
-    text-align: center;
-}
-
-footer>.wide-container>.join-cta, .subscribe-cta {
-    margin-bottom: 8em;
-}
-
-footer>.wide-container>.join-cta h2, .subscribe-cta h2 {
-    margin: 0;
-    padding-bottom: .5em;
-}
-
-footer>.wide-container>.join-cta>ul {
+footer ul {
     margin: 0 auto;
     padding: 0;
     text-align: center;
     display: inline-block;
 }
 
-footer>.wide-container>.join-cta>ul li {
+footer ul li {
     display: inline;
     padding: 0 20px;
 }
 
-footer>.wide-container>.join-cta>ul li a {
-    color: #777;
+footer a, footer a:visited, footer a:link {
+    color: var(--white);
+    border-bottom: none;
     text-transform: lowercase;
 }
 
 /* post styles */
+.post p, .post li {
+    font-size: .9em;
+}
 .post h4 {
     margin-bottom: 3.5em;
     font-size: 14px;
@@ -593,7 +570,7 @@ footer>.wide-container>.join-cta>ul li a {
 }
 
 .post strong {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .post a:link,
@@ -671,14 +648,24 @@ footer>.wide-container>.join-cta>ul li a {
     padding-left: 25px;
 }
 
+/* Main content area */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 120px; /* Account for fixed header height */
+}
+
 .main-container {
-    max-width: 600px;
-    margin: 0 auto 100px;
+    max-width: 45em;
+    margin: 0 auto;
     padding: 0 20px;
+    flex: 1;
 }
 
 .simple-container {
-    max-width: 800px;
+    max-width: 45em;
     margin: 0 auto 100px;
     padding: 0 20px;
 }
@@ -802,7 +789,7 @@ blockquote,
         text-align: left;
     }
 
-    header .byline p {
+    .tagline p {
         font-size: 14px;
         text-align: center;
     }
@@ -858,7 +845,7 @@ blockquote,
     h2, h3, h3, h5, h6, .month h4, p.search-title {
         text-align:center;
     }
-    header .byline {
+    .tagline {
         display:none;
     }
     header .header-row {
