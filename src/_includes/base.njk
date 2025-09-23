@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% if title %}{{ title }} - {% endif %}mrozanski (Mariano's Blog)</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+       function toggleMenu() {
+            const menu = document.querySelector('.header-nav');
+            console.log("Menu toggled");
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-row">
+                <p class="title"><a href="/">mrozanski</a></p>
+
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="header-nav">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% if tagline %}
+        <div class="tagline">
+            <p>{{ tagline }}</p>
+        </div>
+        {% endif %}
+
+        <div class="content main-container">
+            {{ content | safe }}
+        </div>
+    </main>
+
+    <footer>
+        <div class="wide-container">
+            <div class="join-cta">
+                <ul>
+                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
