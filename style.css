@@ -3,195 +3,10 @@ Theme Name: mrozanski-blog
 Theme URI: https://mrozanski.github.io/
 Author: Mariano Rozanski
 Author URI: https://mrozanski.github.io/
-Description: A minimalist, content-focused blog theme based on ZenHabits design.
+Description: A minimalist, content-focused blog theme.
 Version: 1.0
-License: Uncopyrighted
 */
 
-/* CSS HEX */
-:root {
-    --jet: #353535ff;
-    --caribbean-current: #3c6e71ff;
-    --white: #ffffffff;
-    --platinum: #d9d9d9ff;
-    --indigo-dye: #284b63ff;
-}
-
-/* 
-Reset Stylesheet
-*/
-
-html,
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-small,
-strong,
-sub,
-sup,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-
-body {
-    line-height: 1;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    display: block;
-}
-
-nav ul {
-    list-style: none;
-}
-
-blockquote,
-q {
-    quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: '';
-    content: none;
-}
-
-a {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-    color: #333;
-    text-decoration: none;
-    border-bottom: 2px solid #d3d3d3;
-    transition: border-color 0.6s ease, color 0.6s ease;
-}
-
-/* change colors to suit your needs */
-ins {
-    background-color: #ff9;
-    color: #000;
-    text-decoration: none;
-}
-
-/* change colors to suit your needs */
-mark {
-    background-color: #ff9;
-    color: #000;
-    font-style: italic;
-    font-weight: bold;
-}
-
-del {
-    text-decoration: line-through;
-}
-
-abbr[title],
-dfn[title] {
-    border-bottom: 1px dotted;
-    cursor: help;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* change border color to suit your needs */
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #cccccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-input,
-select {
-    vertical-align: middle;
-}
-
-/* end css reset */
 
 /* ==========================
     FONT IMPORTS
@@ -209,19 +24,33 @@ select {
   font-display: swap;
 }
 
-/* ==========================
-    GLOBAL STYLES
-   ========================== */
 
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* CSS HEX */
+:root {
+    /* --color-text: #2d2d2d; */
+    --color-text: #353535ff;
+    --caribbean-current: #3c6e71ff;
+    --color-background: #ffffffff;
+    --platinum: #d9d9d9ff;
+    --indigo-dye: #284b63ff;
+    --color-secondary: var(--indigo-dye);
+    --color-accent: var(--caribbean-current);
+    --header-height: 60px; /* Explicit header height */
+    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-heading: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    background-color: #ffffff;
-    color: #2d2d2d;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
     font-size: 18px;
     line-height: 1.25em;
     font-weight: 400;
@@ -229,6 +58,18 @@ body {
     display: flex;
     flex-direction: column;
 }
+p, li {
+    font-size: 1rem;
+}
+a {
+    color: var(--color-primary);
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 
 /* Paragraph Styling */
 p {
@@ -295,7 +136,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: var(--font-heading);
     font-weight: 300;
     text-align: center;
     line-height: 1.25;
@@ -421,13 +262,15 @@ header {
     border-top: 2px solid var(--indigo-dye);
     border-bottom: 1px solid var(--platinum);
     text-transform: none;
-    background-color: var(--white);
+    background-color: var(--color-background);
     padding: 1em;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    height: var(--header-height);
+    box-sizing: border-box;
 }
 
 header .wide-container {
@@ -465,7 +308,7 @@ header .header-nav {
 }
 
 .tagline p {
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: var(--font-body);
     font-size: .9rem;
     color: #666;
     margin: 0;
@@ -501,7 +344,8 @@ header .header-nav .menu li a:hover {
 
 /* Default style for "mrozanski" (dark) and "blog" (light) */
 header .title {
-    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
     color: #333;
     font-weight: 500;
     text-decoration: none;
@@ -511,6 +355,10 @@ header .title {
     padding: 0;
     white-space: nowrap;
     transition: color 0.7s ease;
+}
+header .title a{
+    border-bottom: none;
+    text-decoration: none;
 }
 
 /* footer */
@@ -523,7 +371,7 @@ footer {
 }
 
 footer h2 {
-    font-family: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: var(--font-heading);
     font-size: 1em;
 }
 
@@ -541,7 +389,7 @@ footer ul li {
 }
 
 footer a, footer a:visited, footer a:link {
-    color: var(--white);
+    color: var(--color-background);
     border-bottom: none;
     text-transform: lowercase;
 }
@@ -549,24 +397,6 @@ footer a, footer a:visited, footer a:link {
 /* post styles */
 .post p, .post li {
     font-size: .9em;
-}
-.post h4 {
-    margin-bottom: 3.5em;
-    font-size: 14px;
-    color: #aaa;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 400;
-}
-
-.post h4 a,
-.post h4 a:visited {
-    color: #aaa;
-    border-bottom: #fff;
-}
-
-.post h4 a:hover {
-    color: #333;
 }
 
 .post strong {
@@ -576,7 +406,7 @@ footer a, footer a:visited, footer a:link {
 .post a:link,
 .post a:visited {
     text-decoration: none;
-    color: #333;
+    color: var(--color-secondary);
     border-bottom: 2px solid #e2e2e2;
     -webkit-transition: all .3s linear;
     -moz-transition: all .3s linear;
@@ -586,7 +416,7 @@ footer a, footer a:visited, footer a:link {
 }
 
 .post a:hover {
-    border-color: #666666;
+    border-color: var(--color-secondary);
 }
 
 .post ul {
@@ -606,7 +436,7 @@ footer a, footer a:visited, footer a:link {
     margin: 2.5em 0;
     padding: .8em 1.5em .2em 1.5em;
     font-style: italic;
-    color: #555;
+    color: var(--color-secondary);
 }
 
 .post blockquote cite {
@@ -654,7 +484,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 120px; /* Account for fixed header height */
+    padding-top: var(--header-height);
 }
 
 .main-container {
