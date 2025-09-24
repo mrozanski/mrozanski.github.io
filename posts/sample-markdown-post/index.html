@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>My First Markdown Blog Post - mrozanski (Mariano's Blog)</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+       function toggleMenu() {
+            const menu = document.querySelector('.header-nav');
+            console.log("Menu toggled");
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-row">
+                <p class="title"><a href="/">mrozanski</a></p>
+
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="header-nav">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+
+        <div class="content main-container">
+            
+<article class="post">
+    <h1>My First Markdown Blog Post</h1>
+    
+    <div class="byline">
+        <img src="/2025.jpg" alt="Author avatar" class="avatar">
+        <div class="byline-text">
+            <span class="author">By Mariano Rozanski</span>
+            <span class="date">Tue Sep 23 2025 00:00:00 GMT+0000 (Coordinated Universal Time)</span>
+        </div>
+    </div>
+    
+
+    <p>This is an example blog post written in <strong>Markdown</strong>. You can use all the standard Markdown features:</p>
+<h2>Headings</h2>
+<h3>Subheadings work too</h3>
+<p>You can write <em>italic</em> and <strong>bold</strong> text.</p>
+<h2>Lists</h2>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ul>
+<h3>Numbered lists</h3>
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+<h2>Code</h2>
+<p>Here's some inline <code>code</code> and a code block:</p>
+<pre><code class="language-javascript">function greet(name) {
+    console.log(`Hello, ${name}!`);
+}
+</code></pre>
+<h2>Links and Images</h2>
+<p>You can add <a href="https://example.com">links</a> and reference images.</p>
+<p>This post demonstrates how easy it is to write content in Markdown and have it automatically converted to HTML with your existing styling.</p>
+
+</article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wide-container">
+            <div class="join-cta">
+                <ul>
+                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

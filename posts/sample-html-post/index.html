@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>HTML Blog Post Example - mrozanski (Mariano's Blog)</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+       function toggleMenu() {
+            const menu = document.querySelector('.header-nav');
+            console.log("Menu toggled");
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-row">
+                <p class="title"><a href="/">mrozanski</a></p>
+
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="header-nav">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+
+        <div class="content main-container">
+            
+<article class="post">
+    <h1>HTML Blog Post Example</h1>
+    
+    <div class="byline">
+        <img src="/2025.jpg" alt="Author avatar" class="avatar">
+        <div class="byline-text">
+            <span class="author">By Mariano Rozanski</span>
+            <span class="date">Mon Sep 22 2025 00:00:00 GMT+0000 (Coordinated Universal Time)</span>
+        </div>
+    </div>
+    
+
+    
+<p>This is an example blog post written in <strong>HTML</strong>. You have full control over the markup when you need it.</p>
+
+<h2>Custom HTML Elements</h2>
+
+<p>You can use any HTML elements you need:</p>
+
+<blockquote>
+    <p>This is a blockquote with custom styling that will inherit your existing CSS.</p>
+</blockquote>
+
+<div class="custom-section">
+    <h3>Custom Sections</h3>
+    <p>You can create custom div containers with specific classes for special styling.</p>
+</div>
+
+<h2>Tables</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Markdown</th>
+            <th>HTML</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Simplicity</td>
+            <td>✓</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Full Control</td>
+            <td>-</td>
+            <td>✓</td>
+        </tr>
+        <tr>
+            <td>Custom Classes</td>
+            <td>-</td>
+            <td>✓</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Choose HTML when you need precise control over the markup and styling.</p>
+</article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wide-container">
+            <div class="join-cta">
+                <ul>
+                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,546 @@
+/*
+Theme Name: mrozanski-blog
+Theme URI: https://mrozanski.github.io/
+Author: Mariano Rozanski
+Author URI: https://mrozanski.github.io/
+Description: A minimalist, content-focused blog theme.
+Version: 1.0
+*/
+
+/* ==========================
+    FONT IMPORTS
+   ========================== */
+
+/* Google Fonts - Manrope */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* WF Visual Sans Font Import */
+@font-face {
+  font-family: 'WF Visual Sans';
+  src: url('https://dhygzobemt712.cloudfront.net/Fonts/VF/WFVisualSansVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Variables */
+:root {
+    --color-text: #353535ff;
+    --caribbean-current: #3c6e71ff;
+    --color-background: #ffffffff;
+    --platinum: #d9d9d9ff;
+    --indigo-dye: #284b63ff;
+    --color-secondary: var(--indigo-dye);
+    --color-accent: var(--caribbean-current);
+    --header-height: 60px;
+    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-heading: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.25rem;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-size: 18px;
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+p, li {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+a:link,
+a:visited {
+    color: #333;
+    border-bottom: 2px solid #d3d3d3;
+}
+
+a:hover {
+    color: #333;
+    border-bottom: 2px solid #666666;
+}
+
+/* List styling */
+ul,
+ol {
+    line-height: 1.5rem;
+    padding-left: 25px;
+    list-style-position: outside;
+    margin-bottom: 1.7rem;
+}
+
+ul li,
+ol li {
+    margin-bottom: -0.2rem;
+    padding-left: 5px;
+}
+
+/* Heading styles */
+h1,
+h2 {
+    font-family: var(--font-heading);
+    line-height: 1.25;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h2 a {
+    border-bottom: none;
+    color: inherit;
+    transition: color 0.8s ease;
+}
+
+h2 a:hover {
+    color: #b0b0b0;
+    text-decoration: none;
+}
+
+img,
+a img {
+    border: 0;
+    border-bottom: none;
+    padding: 0;
+}
+
+/* Container for main content */
+.container {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    overflow: hidden;
+}
+
+/* Wider container for header and footer elements */
+.wide-container {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+/* Header and navigation */
+header {
+    border-top: 2px solid var(--indigo-dye);
+    border-bottom: 1px solid var(--platinum);
+    text-transform: none;
+    background-color: var(--color-background);
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    box-sizing: border-box;
+}
+
+header .wide-container {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.menu {
+    margin-bottom: 0;
+}
+
+/* Header row: title and nav */
+header .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Title styling */
+header .title {
+    flex: 0 0 auto;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    transition: color 0.7s ease;
+}
+
+header .title a {
+    border-bottom: none;
+    text-decoration: none;
+}
+
+header .header-nav {
+    flex: 1;
+    text-align: right;
+    margin-left: 20px;
+}
+
+/* Tagline */
+.tagline {
+    width: 100%;
+    padding: .4rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--platinum);
+}
+
+.tagline p {
+    font-family: var(--font-heading);
+    font-size: .9rem;
+    color: #666;
+    margin: 0;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Navigation menu */
+header .header-nav .menu {
+    display: inline-flex;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+header .header-nav .menu li {
+    display: inline;
+}
+
+/* Menu link styles */
+header .header-nav .menu li a {
+    color: var(--caribbean-current);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: none;
+    transition: color 0.6s ease;
+}
+
+header .header-nav .menu li a:hover {
+    color: #333;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: var(--indigo-dye);
+    padding: 2.5rem 0;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+footer h2 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+}
+
+footer ul {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+}
+
+footer ul li {
+    display: inline;
+    padding: 0 20px;
+}
+
+footer a, footer a:visited, footer a:link {
+    color: var(--color-background);
+    border-bottom: none;
+    text-transform: lowercase;
+}
+
+/* Post styles */
+.post {
+    margin-top: 4rem;
+}
+
+/* Byline styles */
+.byline {
+    display: flex;
+    align-items: flex-start;
+    margin: 2rem 0 2rem 0;
+    font-family: var(--font-body);
+}
+
+.byline .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    object-fit: cover;
+    border: 2px solid var(--caribbean-current);
+    flex-shrink: 0;
+}
+
+.byline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.byline .author {
+    font-weight: 300;
+    color: var(--caribbean-current);
+}
+
+.byline .date {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.post p, .post li {
+    font-size: .9rem;
+}
+
+.post strong {
+    font-weight: 500;
+}
+
+.post a:link,
+.post a:visited {
+    text-decoration: none;
+    color: var(--color-secondary);
+    border-bottom: 2px solid #e2e2e2;
+    transition: all .3s linear;
+}
+
+.post a:hover {
+    border-color: var(--color-secondary);
+}
+
+.post ul {
+    list-style-type: disc;
+    padding: .1rem .0 0 1.1rem;
+    margin-top: .5rem;
+}
+
+.post ol {
+    list-style-type: decimal;
+    padding: .1rem 0 0 1.2rem;
+    margin-top: .5rem;
+}
+
+/* Main content area */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: var(--header-height);
+}
+
+.main-container {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+/* ==========================
+   RESPONSIVE MENU FOR SMALL SCREENS
+   ========================== */
+
+.hamburger-menu {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .hamburger-menu span {
+        background-color: #333;
+        height: 3px;
+        width: 25px;
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header-nav {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background-color: #f2f2f2;
+        position: absolute;
+        width: 47%;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-nav.active {
+        display: flex;
+    }
+
+    .header-nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px;
+        width: 90%;
+        text-align: center;
+        gap: 0px;
+    }
+
+    .header-nav ul li {
+        margin: 5px 0;
+        width: 100%;
+        padding: 5px 0 5px 0;
+        margin: 5px 0 5px 0;
+        gap: 0px;
+    }
+
+    .header-nav ul li a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        padding: 8px 0;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        gap: 0px;
+    }
+
+    .header-nav ul li a:hover {
+        background-color: #eaeaea;
+    }
+
+    .tagline p {
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .byline .avatar {
+        width: 28px;
+        height: 28px;
+        margin-right: 0.5rem;
+    }
+    
+    .byline .author {
+        font-size: 0.85rem;
+    }
+    
+    .byline .date {
+        font-size: 0.8rem;
+    }
+}
+
+/* For iPad-sized devices */
+@media only screen and (max-device-width: 1024px) {
+    .wide-container {
+        max-width: 70rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        overflow: hidden;
+    }
+
+    header .header-nav .menu li {
+        display: inline;
+        padding: 0 10px;
+    }
+}
+
+/* For narrower browsers */
+@media screen and (max-width: 800px) {
+    .wide-container,
+    .container {
+        max-width: 70rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        overflow: hidden;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 2rem 0 1rem 0;
+        text-align: left;
+    }
+
+    .join-cta h2 {
+        text-align: center;
+    }
+}
+
+/* For iPhone-sized devices */
+@media only screen and (max-device-width: 480px) {
+    h2 {
+        text-align: center;
+    }
+    
+    .tagline {
+        display: none;
+    }
+    
+    header .header-row {
+        flex-wrap: wrap;
+    }
+    
+    header .title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    header .header-nav {
+        width: 100%;
+        text-align: center;
+    }
+    
+    header .header-nav .menu li {
+        display: inline;
+        padding: 0 5px;
+    }
+}
+
+@media print {
+    body {
+        font-family: Helvetica, sans-serif;
+        font-size: 14px;
+        background: white;
+        color: black;
+        margin: 10;
+        width: auto;
+    }
+
+    .container,
+    .wide-container {
+        display: block;
+    }
+
+    header .header-nav,
+    footer {
+        display: none;
+    }
+}
