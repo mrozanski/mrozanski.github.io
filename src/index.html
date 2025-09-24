@@ -1,49 +1,29 @@
 ---
 layout: base.njk
 title: Home
-tagline: Software experiments, automation notes, and detours into software quirks and design lessons
 ---
 
-<article class="post">
-
-    <h1>Sample Blog Post Title</h1>
-    <div class="byline">
-        <img src="/2025.jpg" alt="Author avatar" class="avatar">
-        <div class="byline-text">
-            <span class="author">By Mariano Rozanski</span>
-            <span class="date">September 23, 2025</span>
-        </div>
+<h1>mrozanski Blog</h1>
+<div class="byline">
+    <img src="/2025.jpg" alt="Author avatar" class="avatar">
+    <div class="home-tagline">
+        <p>Software experiments, automation notes, and detours
+                into software quirks and design lessons
+        </p>
     </div>
-                <p>This is a sample blog post to demonstrate the layout and styling. You can replace this content with your own posts.</p>
-                <p>The template maintains the clean, minimalist design of the original ZenHabits theme while being customized for your blog.</p>
-                <p>Key features of this template:</p>
-                <ol>
-                    <li><strong>Clean typography</strong> - Easy to read fonts and proper spacing</li>
-                    <li><strong>Responsive design</strong> - Works well on all devices</li>
-                    <li><strong>Minimalist layout</strong> - Focus on content without distractions</li>
-                    <li><strong>Customizable styling</strong> - Easy to modify colors, fonts, and layout</li>
-                </ol>
-                <p>You can customize the colors, fonts, and layout by editing the CSS file. The template is ready for you to add your own content and styling preferences.</p>
-                
-                <p>This is a sample blog post to demonstrate the layout and styling. You can replace this content with your own posts.</p>
-                <p>The template maintains the clean, minimalist design of the original ZenHabits theme while being customized for your blog.</p>
-                <p>Key features of this template:</p>
-                <ol>
-                    <li><strong>Clean typography</strong> - Easy to read fonts and proper spacing</li>
-                    <li><strong>Responsive design</strong> - Works well on all devices</li>
-                    <li><strong>Minimalist layout</strong> - Focus on content without distractions</li>
-                    <li><strong>Customizable styling</strong> - Easy to modify colors, fonts, and layout</li>
-                </ol>
-                <p>You can customize the colors, fonts, and layout by editing the CSS file. The template is ready for you to add your own content and styling preferences.</p>
-                
-                <p>This is a sample blog post to demonstrate the layout and styling. You can replace this content with your own posts.</p>
-                <p>The template maintains the clean, minimalist design of the original ZenHabits theme while being customized for your blog.</p>
-                <p>Key features of this template:</p>
-                <ol>
-                    <li><strong>Clean typography</strong> - Easy to read fonts and proper spacing</li>
-                    <li><strong>Responsive design</strong> - Works well on all devices</li>
-                    <li><strong>Minimalist layout</strong> - Focus on content without distractions</li>
-                    <li><strong>Customizable styling</strong> - Easy to modify colors, fonts, and layout</li>
-                </ol>
-    <p>You can customize the colors, fonts, and layout by editing the CSS file. The template is ready for you to add your own content and styling preferences.</p>
-</article>
+</div>
+
+    {%- for post in collections.all | reverse -%}
+  {%- if post.url != "/posts/" and "/posts/" in post.url -%}
+    <article class="post-preview">
+      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      {%- if post.data.date -%}
+        <p class="post-date">{{ post.data.date }}</p>
+      {%- endif -%}
+      {%- if post.data.author -%}
+        <p class="post-author">By {{ post.data.author }}</p>
+      {%- endif -%}
+    </article>
+  {%- endif -%}
+{%- endfor -%}
+
