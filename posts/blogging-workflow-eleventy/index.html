@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>From Notes to Posts: My Blogging Workflow - mrozanski (Mariano's Blog)</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+       function toggleMenu() {
+            const menu = document.querySelector('.header-nav');
+            console.log("Menu toggled");
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-row">
+                <p class="title"><a href="/">mrozanski</a></p>
+
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="header-nav">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+
+        <div class="content main-container">
+            
+<article class="post">
+    <h1>From Notes to Posts: My Blogging Workflow</h1>
+    
+    <div class="byline">
+        <img src="/2025.jpg" alt="Author avatar" class="avatar">
+        <div class="byline-text">
+            <span class="author">By Mariano Rozanski</span>
+            <span class="date">Sat Sep 20 2025 00:00:00 GMT+0000 (Coordinated Universal Time)</span>
+        </div>
+    </div>
+    
+
+    <h2>TL;DR</h2>
+<p>I wanted a way to share experiments without drowning in CMS bloat or social media noise. My workflow now: jot notes in Obsidian, sync with iCloud, polish with an AI buddy, and publish via Eleventy + GitHub Pages. Jekyll was my first stop, but I bailed after wrestling with outdated layouts and brittle themes. Building my own design-first setup with Eleventy feels cleaner and future-proof.</p>
+<h2>Why blog at all?</h2>
+<p>I finally decided I have enough half-baked experiments and thoughts worth sharing that it’s time to step out of my comfort zone. Not a huge leap, but enough to feel the nerves. Blogging felt like the right move: it leaves a footprint, the content is mine, and anyone curious about my work can find it in one place. Plus, it doubles as journaling.</p>
+<h2>My first workflow attempt</h2>
+<p>I started by cobbling together a system that could grow with me:</p>
+<ol>
+<li><strong>Capture ideas fast</strong> in <a href="https://obsidian.md">Obsidian</a>. Each spark becomes a markdown file in my vault.</li>
+<li><strong>Sync the vault</strong> via iCloud Drive. I already pay for it, and it’s low-friction.</li>
+<li><strong>Polish with AI.</strong> Claude handles most of my day-to-day tasks, but for blogging I wanted a separate tool. I went with ChatGPT’s custom GPTs because they adapt to style and keep my blog writing sandboxed.</li>
+<li><strong>Publish with GitHub Pages.</strong> It’s free, simple, keeps history, and lets me stay in the environment where I already live: git + IDE. Push to publish felt like magic.</li>
+</ol>
+<p>Everything seemed set. But then came the publishing tool.</p>
+<h3>The Jekyll detour</h3>
+<p>Jekyll popped up in every search for static site generators. It looked perfect, so I dove in without exploring alternatives. That was a mistake.</p>
+<p>The default theme, <em>minima</em>, uses outdated layout techniques (pixels everywhere, no flexbox). Switching themes was brittle—small customizations broke everything. I spent more time fighting Jekyll than writing. That’s when I knew it wasn’t the right fit.</p>
+<h3>Recalculating: Eleventy</h3>
+<p>I still liked the idea of static sites and markdown, so I restarted my search. Hugo came up. Claude suggested Zola and Astro. But Eleventy (11ty) struck the right balance of flexibility and simplicity.</p>
+<p>My plan with Eleventy is straightforward:</p>
+<ol>
+<li><strong>Design first.</strong> Build my dream blog in plain HTML/CSS—layout, typography, navigation. No theme hunting.</li>
+<li><strong>AI-assisted conversion.</strong> Hand the static page to an AI and say: <em>“Convert this to 11ty templates.”</em> It can split out includes, set up layouts, and generate the config for passthrough assets.</li>
+<li><strong>GitHub Pages deploy.</strong> Push to my repo, let a GitHub Action run <code>npx @11ty/eleventy</code>, and publish.</li>
+<li><strong>Writing flow.</strong> Draft in markdown, preview locally with <code>npx @11ty/eleventy --serve</code>, then commit and push to go live.</li>
+</ol>
+<p>This approach gives me the design I want, avoids theme hell, and still keeps publishing one git push away.</p>
+<h3>Why this works</h3>
+<ul>
+<li><strong>Design-first.</strong> I don’t compromise on look/feel.</li>
+<li><strong>AI handles the boilerplate.</strong> No need to master Eleventy’s internals on day one.</li>
+<li><strong>Git-based publishing.</strong> Write → preview → push → done.</li>
+<li><strong>Incremental.</strong> Features like tags and pagination can come later.</li>
+</ul>
+<h3>Lessons learned</h3>
+<ul>
+<li>Don’t marry the first tool you meet.</li>
+<li>Define what “ideal” looks like before shopping tools.</li>
+<li>Static site generators + AI make a surprisingly good team.</li>
+<li>Publishing should feel as natural as writing notes.</li>
+</ul>
+<h3>Next steps</h3>
+<p>I want to test adding tags and pagination, experiment with Claude vs GPT for template generation, and refine the design as I go. This workflow gives me full control, without the friction of CMSs or the chaos of social feeds. Let’s see how it evolves.</p>
+
+</article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wide-container">
+            <div class="join-cta">
+                <ul>
+                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
