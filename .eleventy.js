@@ -1,4 +1,15 @@
 module.exports = function(eleventyConfig) {
+  // Add date filter
+  eleventyConfig.addFilter("dateFormat", function(date) {
+    const options = { 
+      weekday: 'short', 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    };
+    return new Date(date).toLocaleDateString('en-US', options);
+  });
+
   // Pass through copy for static assets
   eleventyConfig.addPassthroughCopy("src/**/*.css");
   eleventyConfig.addPassthroughCopy("src/**/*.jpg");
