@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Creating Professional Landing Pages: AI-to-HTML Process - mrozanski (Mariano's Blog)</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+       function toggleMenu() {
+            const menu = document.querySelector('.header-nav');
+            console.log("Menu toggled");
+            menu.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-row">
+                <p class="title"><a href="/">mrozanski</a></p>
+
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="header-nav">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+
+        <div class="content main-container">
+            
+<article class="post">
+    
+    <h1>Creating Professional Landing Pages: AI-to-HTML Process</h1>
+    
+    <div class="byline">
+        <img src="/2025.jpg" alt="Author avatar" class="avatar">
+        <div class="byline-text">
+            <span class="author">By Mariano Rozanski</span>
+            <span class="date">Fri, Sep 26, 2025</span>
+        </div>
+    </div>
+    
+
+    <h1>Creating Professional Landing Pages: AI-to-HTML Process</h1>
+<h2>Overview</h2>
+<p>This process creates professional landing pages by leveraging AI for content creation, visual design tools for mockups, and semantic HTML for final implementation. The result is clean, lightweight, server-side rendered HTML without React bloat.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Access to Claude (or similar AI with project history/context)</li>
+<li>Design generation tool (Lovable, Bolt, v0, etc.)</li>
+<li>Chrome browser for screenshots</li>
+<li>Basic HTML/CSS knowledge for final styling</li>
+</ul>
+<hr>
+<h2>Step 1: Content Generation with AI</h2>
+<h3>Setup Context</h3>
+<p><strong>Goal:</strong> Provide maximum context to your AI assistant for better results.</p>
+<p><strong>What to include:</strong></p>
+<ul>
+<li>Resume/LinkedIn profile</li>
+<li>Previous project descriptions</li>
+<li>Target audience details</li>
+<li>Business goals and constraints</li>
+<li>Any existing brand materials</li>
+</ul>
+<h3>Content Creation Prompt Template</h3>
+<pre><code>I need to create a landing page for [COMPANY/SERVICE NAME]. Here's the context:
+
+**Purpose:** [Why you're creating this page - personal branding, lead generation, etc.]
+
+**Target Audience:** [Primary audience - founders, CTOs, investors, etc.]
+
+**Current Situation:** [Brief description of your business/service state]
+
+**Key Differentiators:** [What sets you apart - experience, approach, specialties]
+
+**Constraints:** [Budget, timeline, technical limitations]
+
+**Goals:** [What success looks like - inquiries, credibility, partnerships]
+
+Based on this context, I need:
+1. A compelling tagline (under 10 words)
+2. An &quot;About&quot; section that positions me strategically
+3. Service/offering descriptions
+4. Any other essential page elements
+
+Ask me any clarifying questions you need to create the most effective content for my specific situation and goals.
+</code></pre>
+<h3>Follow-up Clarification</h3>
+<p>When the AI asks follow-up questions, answer thoroughly. Good AIs will ask about:</p>
+<ul>
+<li>Tone and positioning preferences</li>
+<li>Technical depth vs. accessibility</li>
+<li>Geographic/market focus</li>
+<li>Service emphasis priorities</li>
+<li>Brand personality</li>
+</ul>
+<hr>
+<h2>Step 2: Visual Design Generation</h2>
+<h3>Design Tool Prompt Template</h3>
+<pre><code>Create a [STYLE DESCRIPTION] landing page for a [BUSINESS TYPE] that conveys [KEY ATTRIBUTES].
+
+**Design Requirements:**
+- Layout: [minimalist/modern/professional/etc.]
+- Positioning: [boutique firm/enterprise service/startup/etc.]
+- Color scheme: [monochrome/brand colors/specific palette]
+- Typography: [clean/bold/professional/etc.]
+- Key sections: [hero/about/services/contact/etc.]
+
+**Brand Guidelines:**
+- Primary color: [HEX CODE if available]
+- Logo: [attach or describe]
+- Style references: [attach inspiration images]
+
+**Content Structure:**
+[Paste the content from Step 1]
+
+**Technical Notes:**
+- Responsive design required
+- [Any specific technical requirements]
+</code></pre>
+<h3>Example Values for Common Use Cases</h3>
+<p><strong>Technology Consultancy:</strong></p>
+<ul>
+<li>Style: &quot;clean, modern landing page&quot;</li>
+<li>Business Type: &quot;premium technology consultancy&quot;</li>
+<li>Key Attributes: &quot;trust and innovation&quot;</li>
+<li>Positioning: &quot;boutique consulting firm rather than traditional software development company&quot;</li>
+</ul>
+<p><strong>SaaS Product:</strong></p>
+<ul>
+<li>Style: &quot;conversion-focused landing page&quot;</li>
+<li>Business Type: &quot;B2B SaaS platform&quot;</li>
+<li>Key Attributes: &quot;efficiency and results&quot;</li>
+<li>Positioning: &quot;enterprise-grade solution with startup agility&quot;</li>
+</ul>
+<hr>
+<h2>Step 3: Screenshot Capture</h2>
+<h3>Chrome Full-Page Screenshot Process</h3>
+<ol>
+<li>Open the generated design in Chrome</li>
+<li>Open Developer Tools (F12 or Cmd+Option+I)</li>
+<li>Press Cmd+Shift+P (Mac) or Ctrl+Shift+P (Windows)</li>
+<li>Type &quot;screenshot&quot;</li>
+<li>Select &quot;Capture full size screenshot&quot;</li>
+<li>Save the image</li>
+</ol>
+<p><strong>Pro tip:</strong> If the design tool provides a live preview URL, use that for the screenshot to get the most accurate representation.</p>
+<hr>
+<h2>Step 4: Semantic HTML Creation</h2>
+<h3>HTML Conversion Prompt Template</h3>
+<pre><code>I have a screenshot of a landing page design that I want to convert to clean, semantic HTML.
+
+**Requirements:**
+- Semantic HTML5 structure (header, main, section, article, footer, etc.)
+- Proper heading hierarchy (h1, h2, h3, etc.)
+- No inline styles or presentation attributes
+- Accessible markup with appropriate ARIA labels where needed
+- Clean class names that reflect content purpose, not appearance
+- Ready for CSS styling with modern techniques (Grid, Flexbox)
+
+**Content to include:**
+[Describe the key sections and content from your screenshot]
+
+Please analyze the attached screenshot and create the HTML structure that best represents the visual hierarchy and content organization shown.
+</code></pre>
+<hr>
+<h2>Step 5: CSS Layout Generation</h2>
+<h3>AI-Assisted CSS Creation</h3>
+<p><strong>Goal:</strong> Generate layout CSS that matches your design screenshot using an AI coding assistant.</p>
+<p><strong>Tools:</strong> Cursor, GitHub Copilot, CodeWhisperer, or any AI-enabled IDE</p>
+<h3>CSS Generation Prompt Template</h3>
+<pre><code>Based on the attached screenshot of a landing page design, generate CSS for the file [FILENAME].css that will style the existing HTML markup to match the visual layout shown.
+
+The HTML already has semantic structure with these key elements and class names:
+[LIST YOUR MAIN SECTIONS AND CLASS NAMES - e.g.:
+- header &gt; nav with .logo and navigation ul
+- main &gt; .hero section with h1, p, and .cta-buttons
+- .about section with .highlights and .about-content
+- .services section with .services-grid
+- footer with .footer-content and .footer-bottom]
+
+Requirements for the CSS:
+1. Match the spacing, typography hierarchy, and layout from the screenshot
+2. Use CSS Grid for main layout sections ([LIST GRID SECTIONS])
+3. Use Flexbox for navigation, buttons, and smaller components
+4. Implement the color scheme: [YOUR BRAND COLORS]
+5. Font families: [HEADING FONT] for headings, [BODY FONT] for body text
+6. Responsive design - should work on mobile and desktop
+7. Match the button styles and interactive elements from the design
+8. Proper spacing between sections and elements as shown
+9. [SPECIFIC ALIGNMENT REQUIREMENTS - e.g., center-aligned hero, left-aligned body]
+10. Include hover states for interactive elements
+
+Focus on layout positioning, spacing, typography scales, and the overall visual hierarchy shown in the screenshot. Don't worry about exact pixel measurements - aim for the proportional relationships and general feel of the design.
+</code></pre>
+<h3>Tips for Better Results</h3>
+<ul>
+<li><strong>Attach your screenshot</strong> to the AI coding tool if supported</li>
+<li><strong>Include your HTML file</strong> in the workspace for context</li>
+<li><strong>Specify your existing CSS file name</strong> so it knows where to write</li>
+<li><strong>Mention responsive breakpoints</strong> if you have specific requirements</li>
+<li><strong>Ask for CSS custom properties</strong> if you want maintainable code</li>
+</ul>
+<h3>Example for Technology Consultancy</h3>
+<pre><code>Based on the attached screenshot, generate CSS for dotsur.css that styles the semantic HTML to match this design.
+
+Key sections: header nav, .hero, .about with .highlights grid, .services with .services-grid, footer with three columns.
+
+Requirements:
+- CSS Grid for .highlights (3 columns), .services-grid (3x2), .footer-content (3 columns)
+- Flexbox for nav, buttons, smaller components  
+- Colors: primary blue #5EA9DA, grays for text, white background
+- Fonts: Ubuntu headings, Inter body text
+- Responsive design
+- Button styles: primary filled blue, secondary outlined
+- Center-aligned hero, left-aligned content sections
+- Proper spacing matching the screenshot proportions
+</code></pre>
+<hr>
+<h2>Step 6: Styling Refinement and Polish</h2>
+<h3>CSS Development Approach</h3>
+<ol>
+<li><strong>Start with a CSS reset/normalize</strong></li>
+<li><strong>Define CSS custom properties for colors, fonts, spacing</strong></li>
+<li><strong>Build mobile-first responsive layout</strong></li>
+<li><strong>Add progressive enhancements</strong></li>
+</ol>
+<h3>Recommended CSS Structure</h3>
+<pre><code class="language-css">/* 1. Custom Properties */
+:root { /* colors, fonts, spacing */ }
+
+/* 2. Reset/Base Styles */
+*, *::before, *::after { /* reset */ }
+
+/* 3. Typography */
+body, h1, h2, h3 { /* font stacks, sizes */ }
+
+/* 4. Layout */
+.container, header, main, footer { /* structure */ }
+
+/* 5. Components */
+.btn, .card, .hero { /* reusable components */ }
+
+/* 6. Utilities */
+.sr-only, .text-center { /* helper classes */ }
+</code></pre>
+<hr>
+<h2>Process Benefits</h2>
+<p><strong>Speed:</strong> Complete professional landing page in 1-2 hours
+<strong>Quality:</strong> AI-generated content + human-refined design + semantic code
+<strong>Performance:</strong> Lightweight HTML/CSS without framework overhead
+<strong>Maintainability:</strong> Clean, semantic code that's easy to modify
+<strong>Accessibility:</strong> Proper HTML structure supports screen readers and SEO</p>
+<hr>
+<h2>Alternative Tools</h2>
+<p><strong>Content Generation:</strong></p>
+<ul>
+<li>Claude (best for context-aware conversations)</li>
+<li>ChatGPT (good alternative)</li>
+<li>Notion AI (if working within Notion)</li>
+</ul>
+<p><strong>Design Generation:</strong></p>
+<ul>
+<li>Lovable (React-based, good for complex layouts)</li>
+<li>v0 (Vercel's tool, excellent for modern designs)</li>
+<li>Bolt (good for rapid prototyping)</li>
+<li>Framer AI (if you plan to use Framer for hosting)</li>
+</ul>
+<p><strong>Screenshot Tools:</strong></p>
+<ul>
+<li>Chrome DevTools (most reliable)</li>
+<li>Full Page Screen Capture extension</li>
+<li>Fireshot extension</li>
+</ul>
+<hr>
+<h2>Common Pitfalls</h2>
+<ol>
+<li><strong>Insufficient context in Step 1</strong> - Results in generic, ineffective content</li>
+<li><strong>Vague design prompts in Step 2</strong> - Leads to off-brand or inappropriate designs</li>
+<li><strong>Skipping the screenshot step</strong> - Trying to extract HTML directly from React code is messy</li>
+<li><strong>Over-complex HTML in Step 4</strong> - Ask for truly semantic structure, not div soup</li>
+<li><strong>Rushing the CSS</strong> - Take time to build a maintainable stylesheet</li>
+</ol>
+<hr>
+<h2>Success Metrics</h2>
+<ul>
+<li><strong>Load time under 2 seconds</strong> (lightweight HTML/CSS)</li>
+<li><strong>Perfect Lighthouse accessibility score</strong> (semantic markup)</li>
+<li><strong>Mobile-responsive design</strong> (CSS Grid/Flexbox)</li>
+<li><strong>Clear conversion path</strong> (effective content and CTAs)</li>
+<li><strong>Easy to maintain</strong> (clean, documented code)</li>
+</ul>
+
+</article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wide-container">
+            <div class="join-cta">
+                <ul>
+                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
