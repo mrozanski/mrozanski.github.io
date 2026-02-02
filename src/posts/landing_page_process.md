@@ -6,8 +6,6 @@ date: 2025-09-26
 tags: [ai, design, workflow, coding, landing-page, semantic-html, css]
 ---
 
-# Creating Professional Landing Pages: AI-to-HTML Process
-
 ## Overview
 This process creates professional landing pages by leveraging AI for content creation, visual design tools for mockups, and semantic HTML for final implementation. The result is clean, lightweight, server-side rendered HTML without React bloat.
 
