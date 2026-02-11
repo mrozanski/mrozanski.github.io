@@ -3,16 +3,6 @@ layout: base.njk
 title: Home
 ---
 
-<h1>mrozanski Blog</h1>
-<div class="byline">
-    <img src="/2025.jpg" alt="Author avatar" class="avatar">
-    <div class="home-tagline">
-        <p>Software experiments, automation notes, and detours
-                into software quirks and design lessons
-        </p>
-    </div>
-</div>
-
     {%- for post in collections.all | reverse -%}
   {%- if post.url != "/posts/" and "/posts/" in post.url -%}
     <article class="post-preview">

@@ -11,8 +11,9 @@ Version: 1.0
     FONT IMPORTS
    ========================== */
 
-/* Google Fonts - Manrope */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+/* Google Fonts - Manrope, Fira Code */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Manrope:wght@200..800&family=Inter:wght@100..900&display=swap');
+
 
 /* WF Visual Sans Font Import */
 @font-face {
@@ -26,15 +27,23 @@ Version: 1.0
 /* CSS Variables */
 :root {
     --color-text: #353535ff;
+    --color-muted: hsl(0, 0%, 35%);
     --caribbean-current: #3c6e71ff;
-    --color-background: #ffffffff;
+    --color-background: #E9ECED;
     --platinum: #d9d9d9ff;
     --indigo-dye: #284b63;
+    --dark-cerulean: #1E80B0;
+    --borders:var(--dark-cerulean);
     --color-secondary: var(--indigo-dye);
     --color-accent: var(--caribbean-current);
     --header-height: 60px;
     --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --font-heading: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --header-max-width: 45rem;
+    --header-left-width: 280px;
+    --header-right-width: 280px;
 }
 
 /* Reset and base styles */
@@ -146,7 +155,7 @@ a img {
 }
 
 /* Header and navigation */
-header {
+/* header {
     border-top: 2px solid var(--indigo-dye);
     border-bottom: 1px solid var(--platinum);
     text-transform: none;
@@ -159,32 +168,24 @@ header {
     z-index: 1000;
     height: var(--header-height);
     box-sizing: border-box;
-}
+} */
 
-header .wide-container {
+/* header .wide-container {
     display: flex;
     flex-direction: column;
-}
+} */
 
 ul.menu {
     margin-bottom: 0;
-}
-
-/* Header row: title and nav */
-header .header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
 }
 
 /* Title styling */
 header .title {
     flex: 0 0 auto;
     text-align: left;
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: #333;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--color-text);
     font-weight: 500;
     text-decoration: none;
     border-bottom: none;
@@ -224,18 +225,18 @@ header .header-nav {
 }
 
 /* Navigation menu */
-header .header-nav .menu {
+.page-header .menu {
     display: inline-flex;
     gap: 1rem;
     font-size: 1rem;
 }
 
-header .header-nav .menu li {
+.page-header .menu li {
     display: inline;
 }
 
 /* Menu link styles */
-header .header-nav .menu li a {
+.page-header .menu li a {
     color: var(--caribbean-current);
     font-weight: 500;
     text-decoration: none;
@@ -243,7 +244,7 @@ header .header-nav .menu li a {
     transition: color 0.6s ease;
 }
 
-header .header-nav .menu li a:hover {
+.page-header .menu li a:hover {
     color: #333;
 }
 
@@ -365,6 +366,8 @@ footer a, footer a:visited, footer a:link {
 }
 .post-preview {
     margin-top: 3rem;
+    border-top: 1px solid var(--borders);
+    border-bottom: 1px solid var(--borders);
 }
 
 /* Code block styles */
@@ -385,7 +388,7 @@ pre code {
     padding: 0;
     font-size: 0.85rem;
     line-height: 1.4;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     display: block;
     white-space: pre;
     overflow-x: auto;
@@ -399,7 +402,7 @@ code {
     border-radius: 3px;
     padding: 0.2rem 0.4rem;
     font-size: 0.85rem;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
 }
 
 /* Override inline code styles when inside pre */
@@ -418,11 +421,10 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: var(--header-height);
 }
 
 .main-container {
-    max-width: 45rem;
+    width: 45rem;
     margin: 0 auto;
     padding: 0 20px;
     flex: 1;
@@ -611,4 +613,136 @@ main {
     footer {
         display: none;
     }
+}
+
+/* Header layout template – desktop, flex-based */
+
+  
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+}
+
+.page-header {
+width: 100%;
+position: relative;
+}
+
+.header-content {
+display: flex;
+align-items: stretch;
+max-width: var(--header-max-width);
+margin: 0 auto;
+min-height: 120px;
+border-left: 1px solid var(--borders);
+}
+
+/* ----- Left column: two cells, same width, left-aligned ----- */
+.header-left {
+display: flex;
+flex-direction: column;
+width: var(--header-left-width);
+flex-shrink: 0;
+}
+
+.header-left .cell-top {
+    flex: 1 1 auto;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+.header-left .cell-bottom {
+flex: 0 0 auto;
+min-height: 48px;
+display: flex;
+align-items: center;
+padding-bottom: 0;
+}
+
+/* Horizontal border between the two left cells: extends left to viewport, right to right edge of left column only */
+.border-between-left {
+height: 1px;
+background: var(--borders);
+flex: 0 0 1px;
+margin-left: -100vw;
+width: calc(100vw + 100%);
+}
+
+/* ----- Right column: two cells, same width, right-aligned ----- */
+.header-right {
+display: flex;
+flex-direction: column;
+width: var(--header-right-width);
+flex-shrink: 0;
+margin-left: auto;
+position: relative;
+}
+
+/* Top border of right column: extends from left edge of top-right cell to viewport right */
+.border-top-right {
+position: absolute;
+top: 0.5rem;
+left: 5rem;
+width: 100vw;
+height: 1px;
+background: var(--borders);
+z-index: 0;
+}
+
+.header-right .cell-top {
+flex: 0 0 auto;
+min-height: 48px;
+display: flex;
+align-items: center;
+justify-content: end;
+position: relative;
+z-index: 1;
+}
+
+.header-right .cell-bottom {
+flex: 1 1 auto;
+min-height: 72px;
+display: flex;
+align-items: center;
+justify-content: end;
+}
+
+/* Content cells: no background (as per spec); add padding as needed */
+.cell {
+padding: 0.5rem 0.75rem;
+}
+
+.cell p {
+margin: 0;
+}
+
+.site-name {
+    font-family: var(--font-inter);
+    line-height: 1.3;
+    color: var(--borders);
+    font-size: 1rem;
+}
+
+.first-cap, .end-cap {
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+.end-cap {
+    color: var(--color-muted);
+}
+
+.site-subtitle {
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    color: var(--color-muted);
+    line-height: 1.3;
+    font-weight: 500;
 }
