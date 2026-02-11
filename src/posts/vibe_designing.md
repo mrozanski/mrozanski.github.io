@@ -2,6 +2,7 @@
 layout: post.njk
 author: "Mariano Rozanski"
 title: "Product Vibe Designing"
+excerpt: "When Vibe Coding Stopped Being a Joke"
 date: 2025-09-25
 tags: [ai, design, workflow, coding]
 ---

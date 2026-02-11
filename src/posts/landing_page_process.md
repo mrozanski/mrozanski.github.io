@@ -2,6 +2,7 @@
 layout: post.njk
 author: "Mariano Rozanski"
 title: "Creating Professional Landing Pages: AI-to-HTML Process"
+excerpt: "This process creates clean, lightweight, server-side rendered landing pages using AI for content and design, and semantic HTML for final implementation."
 date: 2025-09-26
 tags: [ai, design, workflow, coding, landing-page, semantic-html, css]
 ---

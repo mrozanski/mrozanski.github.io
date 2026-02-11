@@ -1,6 +1,7 @@
 ---
 layout: post.njk
 title: "From Notes to Posts: My Blogging Workflow"
+excerpt: "How I built my own blogging workflow with Obsidian, AI, and Eleventy."
 author: "Mariano Rozanski"
 date: 2025-09-20
 tags: ["blogging", "techstack", "workflow", "obsidian", "github-pages", "eleventy", "ai-tools"]

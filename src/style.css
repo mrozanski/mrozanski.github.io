@@ -26,7 +26,7 @@ Version: 1.0
 
 /* CSS Variables */
 :root {
-    --color-text: #353535ff;
+    --color-text: #3d3d3d;
     --color-muted: hsl(0, 0%, 35%);
     --caribbean-current: #3c6e71ff;
     --color-background: #E9ECED;
@@ -37,13 +37,14 @@ Version: 1.0
     --color-secondary: var(--indigo-dye);
     --color-accent: var(--caribbean-current);
     --header-height: 60px;
-    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    --font-heading: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    /* --font-heading: 'WF Visual Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
     --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
-    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --header-max-width: 45rem;
     --header-left-width: 280px;
     --header-right-width: 280px;
+    --content-padding-h: 0.75rem
 }
 
 /* Reset and base styles */
@@ -140,7 +141,7 @@ a img {
 
 /* Container for main content */
 .container {
-    max-width: 45rem;
+    max-width: var(--header-max-width);
     margin: 0 auto;
     padding: 0 2.5rem;
     overflow: hidden;
@@ -148,7 +149,7 @@ a img {
 
 /* Wider container for header and footer elements */
 .wide-container {
-    max-width: 45rem;
+    max-width: var(--header-max-width);
     margin: 0 auto;
     padding-bottom: 0;
     overflow: hidden;
@@ -177,6 +178,9 @@ a img {
 
 ul.menu {
     margin-bottom: 0;
+    padding-left: 0;
+    margin-left: 0;
+    border-top: 1px solid var(--borders);
 }
 
 /* Title styling */
@@ -364,10 +368,73 @@ footer a, footer a:visited, footer a:link {
     padding: .1rem 0 0 1.2rem;
     margin-top: .5rem;
 }
+
+.home-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 2.5rem 0;
+    text-align: left;
+}
 .post-preview {
-    margin-top: 3rem;
+    margin-top: 2.8rem;
     border-top: 1px solid var(--borders);
     border-bottom: 1px solid var(--borders);
+    background-color: var(--color-background);
+}
+
+.post-preview-inner {
+    display: flex;
+    align-items: stretch;
+}
+
+.post-preview-date {
+    width: 5rem;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.15rem;
+    padding: .5rem 0.5rem;
+    border-right: 1px solid var(--borders);
+    font-weight: 500;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-text);
+}
+
+.post-preview-date .post-date-day,
+.post-preview-date .post-date-year {
+    line-height: 1.2;
+}
+
+.post-date-year {
+    letter-spacing: 0.1rem;
+}
+
+.post-preview-content {
+    flex: 1;
+    padding: .5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-preview-content h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.post-excerpt {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
 }
 
 /* Code block styles */
@@ -426,7 +493,7 @@ main {
 .main-container {
     width: 45rem;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--content-padding-h);
     flex: 1;
 }
 
@@ -677,12 +744,11 @@ width: calc(100vw + 100%);
 
 /* ----- Right column: two cells, same width, right-aligned ----- */
 .header-right {
-display: flex;
-flex-direction: column;
-width: var(--header-right-width);
-flex-shrink: 0;
-margin-left: auto;
-position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin-left: auto;
+    position: relative;
 }
 
 /* Top border of right column: extends from left edge of top-right cell to viewport right */
@@ -697,13 +763,15 @@ z-index: 0;
 }
 
 .header-right .cell-top {
-flex: 0 0 auto;
-min-height: 48px;
-display: flex;
-align-items: center;
-justify-content: end;
-position: relative;
-z-index: 1;
+    flex: 0 0 auto;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+    z-index: 1;
+    padding-left: 0;
+    margin-left: 0;
 }
 
 .header-right .cell-bottom {
@@ -716,7 +784,7 @@ justify-content: end;
 
 /* Content cells: no background (as per spec); add padding as needed */
 .cell {
-padding: 0.5rem 0.75rem;
+padding: 0.5rem var(--content-padding-h);
 }
 
 .cell p {
