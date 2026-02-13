@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Home - mrozanski (Mariano's Blog)</title>
+    <title>Contact - mrozanski (Mariano's Blog)</title>
     <link rel="stylesheet" href="/style.css" type="text/css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body class="home">
+<body class="">
     <header class="page-header">
         <div class="header-content">
         <div class="header-left">
@@ -49,42 +49,63 @@
         
 
         <div class="content main-container">
-            
-<h1 class="home-title">Recent Posts</h1>
+            <form
+  id="contact-form"
+  action="https://formspree.io/f/xreapabn"
+  method="POST"
+  class="contact-form"
+>
+  <label>
+    Your email:
+    <input type="email" name="email" required>
+  </label>
+  <label>
+    Your message:
+    <textarea name="message" rows="10" required></textarea>
+  </label>
+  <p id="form-status" class="form-status" aria-live="polite"></p>
+  <button type="submit">Send</button>
+</form>
+<script>
+(function() {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
 
+  if (!form || !status) return;
 
-    <article class="post-preview">
-      <div class="post-preview-inner">
-        <div class="post-preview-date"><span class="post-date-day">26.09</span>
-            <span class="post-date-year">2025</span></div>
-        <div class="post-preview-content">
-          <h2><a href="/posts/landing_page_process/">Creating Professional Landing Pages: AI-to-HTML Process</a></h2>
-          <p class="post-excerpt">This process creates clean, lightweight, server-side rendered landing pages using AI for content and design, and semantic HTML for final implementation.</p>
-        </div>
-      </div>
-    </article>
-    <article class="post-preview">
-      <div class="post-preview-inner">
-        <div class="post-preview-date"><span class="post-date-day">25.09</span>
-            <span class="post-date-year">2025</span></div>
-        <div class="post-preview-content">
-          <h2><a href="/posts/vibe_designing/">Product Vibe Designing</a></h2>
-          <p class="post-excerpt">When Vibe Coding Stopped Being a Joke</p>
-        </div>
-      </div>
-    </article>
-    <article class="post-preview">
-      <div class="post-preview-inner">
-        <div class="post-preview-date"><span class="post-date-day">20.09</span>
-            <span class="post-date-year">2025</span></div>
-        <div class="post-preview-content">
-          <h2><a href="/posts/blogging-workflow-eleventy/">From Notes to Posts: My Blogging Workflow</a></h2>
-          <p class="post-excerpt">How I built my own blogging workflow with Obsidian, AI, and Eleventy.</p>
-        </div>
-      </div>
-    </article><p class="view-more">
-  <a href="/posts/">View all posts</a>
-</p>
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    status.textContent = 'Sending...';
+    status.className = 'form-status form-status--sending';
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        status.textContent = 'Thanks for your message. I\'ll get back to you soon.';
+        status.className = 'form-status form-status--success';
+        form.reset();
+      } else {
+        if (data.errors) {
+          status.textContent = data.errors.map(err => err.message).join(', ');
+        } else {
+          status.textContent = 'Something went wrong. Please try again.';
+        }
+        status.className = 'form-status form-status--error';
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.className = 'form-status form-status--error';
+    }
+  });
+})();
+</script>
         </div>
     </main>
 

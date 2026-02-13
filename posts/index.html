@@ -7,36 +7,43 @@
     <link rel="stylesheet" href="/style.css" type="text/css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <script>
-       function toggleMenu() {
-            const menu = document.querySelector('.header-nav');
-            console.log("Menu toggled");
-            menu.classList.toggle('active');
-        }
-    </script>
 </head>
-<body>
-    <header class="header">
-        <div class="wide-container">
-            <div class="header-row">
-                <p class="title"><a href="/">mrozanski</a></p>
-
-                <div class="hamburger-menu" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+<body class="">
+    <header class="page-header">
+        <div class="header-content">
+        <div class="header-left">
+            <div class="cell cell-top">
+            <!-- Top-left content: text and/or image -->
+            <div class="title">
+                    <div><a href="/">mrozanski</a></div>
+                    <div class="site-name"><span class="first-cap">B</span>uild<span class="end-cap">LOG</span></div>
                 </div>
+            </div>
+            <div class="border-line border-between-left" aria-hidden="true"></div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-left content -->
+            <p class="site-subtitle">Real projects where I use code, agents, and product thinking to ship faster</p>
+            </div>
+        </div>
 
-                <nav class="header-nav">
-                    <ul class="menu">
+        <div class="header-right">
+            <!--div class="border-line border-top-right" aria-hidden="true"></div-->
+            <div class="cell cell-top">
+            <!-- Top-right content -->
+            <ul class="menu">
                         <li class="menu-item"><a href="/about/">about</a></li>
                         <li class="menu-item"><a href="/posts/">posts</a></li>
                         <li class="menu-item"><a href="/contact/">contact</a></li>
                     </ul>
-                </nav>
+            </div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-right content (taller) -->
+            <img src="/avatar.png" alt="Author avatar" class="avatar">
             </div>
         </div>
+        </div>
     </header>
+    
 
     <main>
         
@@ -44,9 +51,33 @@
         <div class="content main-container">
             
 <h1>All Posts</h1><article class="post-preview">
-      <h2><a href="/posts/landing_page_process/">Creating Professional Landing Pages: AI-to-HTML Process</a></h2><p class="post-date">Fri, Sep 26, 2025</p><p class="post-author">By Mariano Rozanski</p></article><article class="post-preview">
-      <h2><a href="/posts/vibe_designing/">Product Vibe Designing</a></h2><p class="post-date">Thu, Sep 25, 2025</p><p class="post-author">By Mariano Rozanski</p></article><article class="post-preview">
-      <h2><a href="/posts/blogging-workflow-eleventy/">From Notes to Posts: My Blogging Workflow</a></h2><p class="post-date">Sat, Sep 20, 2025</p><p class="post-author">By Mariano Rozanski</p></article>
+      <div class="post-preview-inner">
+        <div class="post-preview-date"><span class="post-date-day">26.09</span>
+            <span class="post-date-year">2025</span></div>
+        <div class="post-preview-content">
+          <h2><a href="/posts/landing_page_process/">Creating Professional Landing Pages: AI-to-HTML Process</a></h2>
+          <p class="post-excerpt">This process creates clean, lightweight, server-side rendered landing pages using AI for content and design, and semantic HTML for final implementation.</p>
+        </div>
+      </div>
+    </article><article class="post-preview">
+      <div class="post-preview-inner">
+        <div class="post-preview-date"><span class="post-date-day">25.09</span>
+            <span class="post-date-year">2025</span></div>
+        <div class="post-preview-content">
+          <h2><a href="/posts/vibe_designing/">Product Vibe Designing</a></h2>
+          <p class="post-excerpt">When Vibe Coding Stopped Being a Joke</p>
+        </div>
+      </div>
+    </article><article class="post-preview">
+      <div class="post-preview-inner">
+        <div class="post-preview-date"><span class="post-date-day">20.09</span>
+            <span class="post-date-year">2025</span></div>
+        <div class="post-preview-content">
+          <h2><a href="/posts/blogging-workflow-eleventy/">From Notes to Posts: My Blogging Workflow</a></h2>
+          <p class="post-excerpt">How I built my own blogging workflow with Obsidian, AI, and Eleventy.</p>
+        </div>
+      </div>
+    </article>
         </div>
     </main>
 
@@ -54,7 +85,7 @@
         <div class="wide-container">
             <div class="join-cta">
                 <ul>
-                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="/contact" aria-label="Contact Form">Contact</a></li>
                     <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
                     <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
                 </ul>

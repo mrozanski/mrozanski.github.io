@@ -7,36 +7,43 @@
     <link rel="stylesheet" href="/style.css" type="text/css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <script>
-       function toggleMenu() {
-            const menu = document.querySelector('.header-nav');
-            console.log("Menu toggled");
-            menu.classList.toggle('active');
-        }
-    </script>
 </head>
-<body>
-    <header class="header">
-        <div class="wide-container">
-            <div class="header-row">
-                <p class="title"><a href="/">mrozanski</a></p>
-
-                <div class="hamburger-menu" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+<body class="">
+    <header class="page-header">
+        <div class="header-content">
+        <div class="header-left">
+            <div class="cell cell-top">
+            <!-- Top-left content: text and/or image -->
+            <div class="title">
+                    <div><a href="/">mrozanski</a></div>
+                    <div class="site-name"><span class="first-cap">B</span>uild<span class="end-cap">LOG</span></div>
                 </div>
+            </div>
+            <div class="border-line border-between-left" aria-hidden="true"></div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-left content -->
+            <p class="site-subtitle">Real projects where I use code, agents, and product thinking to ship faster</p>
+            </div>
+        </div>
 
-                <nav class="header-nav">
-                    <ul class="menu">
+        <div class="header-right">
+            <!--div class="border-line border-top-right" aria-hidden="true"></div-->
+            <div class="cell cell-top">
+            <!-- Top-right content -->
+            <ul class="menu">
                         <li class="menu-item"><a href="/about/">about</a></li>
                         <li class="menu-item"><a href="/posts/">posts</a></li>
                         <li class="menu-item"><a href="/contact/">contact</a></li>
                     </ul>
-                </nav>
+            </div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-right content (taller) -->
+            <img src="/avatar.png" alt="Author avatar" class="avatar">
             </div>
         </div>
+        </div>
     </header>
+    
 
     <main>
         
@@ -48,7 +55,7 @@
     <h1>From Notes to Posts: My Blogging Workflow</h1>
     
     <div class="byline">
-        <img src="/2025.jpg" alt="Author avatar" class="avatar">
+        <img src="/avatar.png" alt="Author avatar" class="avatar">
         <div class="byline-text">
             <span class="author">By Mariano Rozanski</span>
             <span class="date">Sat, Sep 20, 2025</span>
@@ -107,7 +114,7 @@
         <div class="wide-container">
             <div class="join-cta">
                 <ul>
-                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="/contact" aria-label="Contact Form">Contact</a></li>
                     <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
                     <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
                 </ul>
