@@ -30,6 +30,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/**/*.svg");
   eleventyConfig.addPassthroughCopy("src/**/*.ico");
 
+  eleventyConfig.addCollection("recentPosts", function(collectionApi) {
+    return collectionApi.getAll()
+      .filter(item => item.url !== "/posts/" && item.url.includes("/posts/"))
+      .sort((a, b) => (b.data.date || 0) - (a.data.date || 0))
+      .slice(0, 5);
+  });
+
   return {
     dir: {
       input: "src",

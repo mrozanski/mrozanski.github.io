@@ -5,8 +5,7 @@ title: Home
 
 <h1 class="home-title">Recent Posts</h1>
 
-{%- for post in collections.all | reverse -%}
-  {%- if post.url != "/posts/" and "/posts/" in post.url -%}
+{% for post in collections.recentPosts %}
     <article class="post-preview">
       <div class="post-preview-inner">
         <div class="post-preview-date">
@@ -21,6 +20,8 @@ title: Home
         </div>
       </div>
     </article>
-  {%- endif -%}
 {%- endfor -%}
 
+<p class="view-more">
+  <a href="/posts/">View all posts</a>
+</p>

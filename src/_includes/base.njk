@@ -7,15 +7,8 @@
     <link rel="stylesheet" href="/style.css" type="text/css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <script>
-       function toggleMenu() {
-            const menu = document.querySelector('.header-nav');
-            console.log("Menu toggled");
-            menu.classList.toggle('active');
-        }
-    </script>
 </head>
-<body>
+<body class="{% if page.url == '/' %}home{% endif %}">
     <header class="page-header">
         <div class="header-content">
         <div class="header-left">
@@ -68,7 +61,7 @@
         <div class="wide-container">
             <div class="join-cta">
                 <ul>
-                    <li><a href="mailto:mariano+blog@dotsur.co" aria-label="Email">Email</a></li>
+                    <li><a href="/contact" aria-label="Contact Form">Contact</a></li>
                     <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
                     <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
                 </ul>
