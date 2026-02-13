@@ -10,6 +10,17 @@ module.exports = function(eleventyConfig) {
     return new Date(date).toLocaleDateString('en-US', options);
   });
 
+  eleventyConfig.addFilter("dateDayMonth", function(date) {
+    const d = new Date(date);
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    return `${day}.${month}`;
+  });
+
+  eleventyConfig.addFilter("dateYear", function(date) {
+    return new Date(date).getFullYear().toString();
+  });
+
   // Pass through copy for static assets
   eleventyConfig.addPassthroughCopy("src/**/*.css");
   eleventyConfig.addPassthroughCopy("src/**/*.jpg");
@@ -18,6 +29,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/**/*.gif");
   eleventyConfig.addPassthroughCopy("src/**/*.svg");
   eleventyConfig.addPassthroughCopy("src/**/*.ico");
+
+  eleventyConfig.addCollection("recentPosts", function(collectionApi) {
+    return collectionApi.getAll()
+      .filter(item => item.url !== "/posts/" && item.url.includes("/posts/"))
+      .sort((a, b) => (b.data.date || 0) - (a.data.date || 0))
+      .slice(0, 5);
+  });
 
   return {
     dir: {
