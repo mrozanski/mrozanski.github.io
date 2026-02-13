@@ -3,24 +3,12 @@ layout: base.njk
 title: "About"
 ---
 
-## mrozanski's blog
-
 # About
 
-Imagine a Twitter...
+I'm Mariano, an engineer, product thinker, and founder with 20+ years building software.
 
-Where you never have to scroll past manufactured outrage, smear jobs, or someone’s latest “gotcha” politics.  
-Where it doesn’t matter if you call it Twitter or “X,” and nobody mistakes it for your ex.  
+I run <a href="https://dotsur.co" target="_blank">Dotsur</a>, a software consultancy, and I'm building <a href="https://stringauthority.com" target="_blank">String Authority</a>, a guitar registry platform. I've worked across the stack and across roles (backend, frontend, infrastructure, product management, team leadership) and I've spent the last couple of years going deep on AI-native workflows: agents, orchestration patterns, and tools that make the work better, not just faster.
+This site is where I document what I'm actually shipping. Prototypes, experiments, developer tools, consulting work. Anything where I think the process or the result is worth sharing. No polished tutorials or thought leadership; just real projects with real constraints, written up as I go.
+If something here is useful to you, or you want to talk about what I'm working on, [get in touch](/contact).
 
-Imagine an Instagram with no ads.  
-One where you never unmute a post by mistake, so John Lennon doesn’t suddenly start playing, and you’re not left frantically swiping only to land on Rick Astley at full volume.  
-
-Now picture a platform where:  
-- You **don’t care** about likes, retweets, or comments.  
-- Nobody can jump into your thread and **ruin your day.**
-- Everything you’ve posted is right where you left it, **easy to find.**
-
-That platform already exists.  
-It’s called **a blog**.  
-
-Welcome to mine.  
+<img src="/about.jpg" alt="About image" class="about-image" />
