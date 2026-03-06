@@ -74,8 +74,8 @@ p, li {
 
 a:link,
 a:visited {
-    color: var(--color-text)
-    border-bottom: none
+    color: var(--color-text);
+    border-bottom: none;
 }
 
 a:hover {
@@ -94,7 +94,7 @@ ol {
 
 ul li,
 ol li {
-    margin-bottom: -0.2rem;
+    margin-bottom: .5rem;
     padding-left: 5px;
 }
 
@@ -536,9 +536,9 @@ footer a, footer a:visited, footer a:link {
     font-style: italic;
 }
 
-.post p, .post li {
+/* .post p, .post li {
     font-size: .9rem;
-}
+} */
 
 .post strong {
     font-weight: 700;
@@ -712,12 +712,6 @@ main {
         text-align: center;
     }
 
-    .byline .avatar {
-        width: 28px;
-        height: 28px;
-        margin-right: 0.5rem;
-    }
-
     .byline .author {
         font-size: 0.85rem;
     }
@@ -745,15 +739,20 @@ main {
         padding: 0 1.5rem;
         overflow: hidden;
     }
-
+    h1 {
+        font-size: 1.8rem;
+    }
     h2 {
-        font-size: 2rem;
+        font-size: 1.4rem;
         margin: 2rem 0 1rem 0;
         text-align: left;
     }
 
     .join-cta h2 {
         text-align: center;
+    }
+    p, li {
+        font-size: 1.1rem;
     }
 }
 
