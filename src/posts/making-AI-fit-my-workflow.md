@@ -10,19 +10,17 @@ permalink: "/posts/making-AI-fit-my-workflow/"
 draft: true
 ---
 
-LLMs made me dramatically more productive—and also dramatically worse at remembering where I left off. When every project can move faster, context becomes the bottleneck. This is how I built a portable second brain that plugs AI into *any* workflow while keeping humans and models in sync, regardless of which tools or models I’m using.
+LLMs made me dramatically more productive, and also dramatically worse at remembering where I left off. When every project can move faster, context becomes the bottleneck. This is how I built a portable second brain that plugs AI into *any* workflow while keeping humans and models in sync, regardless of which tools or models I’m using.
 
 ## The problem: the context tax
 
-I wasn’t losing knowledge. I was paying a recurring **context tax** every time I switched models, took a break, or let a project’s knowledge base grow large enough to be unwieldy.
+The idea for this workflow was born as a solution to the problem of paying a recurring **context tax** every time I switched models, took a break, or let a project’s knowledge base grow large enough to be unwieldy.
 
 That tax shows up as wasted time and broken momentum:
 
 - The first hour back on a project goes to re‑explaining it to a model.
-- At the same time, I’m re‑explaining it to *myself*—finding the latest docs, remembering decisions, reconstructing where I left off.
+- At the same time, I’m re‑explaining it to *myself*, finding the latest docs, remembering decisions, reconstructing where I left off.
 - If a project evolves inside one model, I usually have to replay those mutations later when I switch to another model or tool.
-
-The cost isn’t just cognitive load. It’s duplicated effort across humans and machines.
 
 ## A reframing: this isn’t a notes problem
 
@@ -37,7 +35,7 @@ What I actually needed was:
 - Context that survives tool churn
 - And a reliable way to remind *myself* where I left off
 
-This last point matters. Nate’s advice to keep a physical notepad on your desk and always write down where you stopped works because it externalizes working memory. I started doing that too. What I wanted was to **fold that habit into my digital workflow**, in a way models could also use.
+This last point matters. The simple idea of keeping a physical notepad on your desk and always write down where you stopped works because it externalizes working memory. I started doing that too. What I wanted was to **fold that habit into my digital workflow**, in a way models could also use.
 
 ![Where I left Off Paper trail](/where-i-left-off.jpg)
 
@@ -56,7 +54,7 @@ None of these pieces are novel on their own. The leverage comes from how they’
 
 ## Capture: Google Drive (on purpose)
 
-This surprised me, but the tool I naturally reach for on my computer—where I do roughly 90% of my work—is Google Drive.
+This surprised me, but the tool I naturally reach for on my computer, where I do roughly 90% of my work, is Google Drive.
 
 For long‑running, high‑volume projects, Drive gives me:
 
@@ -94,9 +92,7 @@ I built a small Python CLI that:
 
 I can run it from any directory, point it at a Drive folder, and suddenly my cloud notes are just files on disk.
 
-This tool ended up being far more important than I expected.
-
-Why it mattered:
+This tool ended up being far more important than I expected because:
 
 - Local files are trivial to share with any model
 - Any tool that can read a filesystem can now read my project context
@@ -104,7 +100,7 @@ Why it mattered:
 
 What started as a utility script became a core part of my daily workflow.
 
-_Alt: terminal showing a successful Google Drive sync command_
+![Terminal showing a successful Google Drive sync command](/sync-summary.png)
 
 ## I/O: model‑ and surface‑agnostic by design
 
@@ -161,11 +157,11 @@ Essential background any model needs to understand this project.
 - Decision: brief rationale
 ```
 
-This replaces the scratchpad on my desk full of “where I left off” notes—without losing the benefits of versioning and shareability.
+This replaces the scratchpad on my desk full of “where I left off” notes without losing the benefits of versioning and shareability.
 
 ## How models interact with state
 
-Models read and write Project State through a local MCP server.
+Models read and write Project State through a **local MCP server**.
 
 That server has access to:
 
@@ -207,7 +203,7 @@ I’m no longer relying on any single vendor to remember what I’m doing. And a
 
 - A reliable GitHub MCP server to fully automate state sync
 - Better conventions for when models should update Project State
-- A lightweight visual diagram of the architecture
+- Incorporate all these lessons into my personal assistant project
 
-This system isn’t finished. But it finally feels *stable*—and that alone has been a meaningful upgrade.
+This system isn’t finished. But it finally feels *stable*. And that alone has been a meaningful upgrade.
 
