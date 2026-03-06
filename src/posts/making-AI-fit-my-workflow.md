@@ -5,7 +5,7 @@ title: "Making AI Fit My Workflow (Not the Other Way Around)"
 subtitle: "How I survive model and context switching at scale"
 date: 2026-01-31
 tags: [ai, workflow, second-brain, automation, llms]
-summary: "LLMs made me faster—and worse at remembering where I left off. This post describes a portable, model-agnostic second brain that keeps humans and models in sync across tools and time."
+excerpt: "A portable, model-agnostic second brain that keeps humans and models in sync across tools and time."
 permalink: "/posts/making-AI-fit-my-workflow/"
 draft: true
 ---
