@@ -9,6 +9,9 @@ layout: base.njk
     </div>
     {% endif %}
     <h1>{{ title }}</h1>
+    {% if subtitle %}
+    <p class="post-subtitle">{{ subtitle }}</p>
+    {% endif %}
     {% if author or date %}
     <div class="byline">
         <img src="/avatar.png" alt="Author avatar" class="avatar">
@@ -19,5 +22,7 @@ layout: base.njk
     </div>
     {% endif %}
 
-    {{ content | safe }}
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
 </article>
