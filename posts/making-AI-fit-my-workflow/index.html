@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Making AI Fit My Workflow (Not the Other Way Around) - mrozanski (Mariano's Blog)</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body class="">
+    <header class="page-header">
+        <div class="header-content">
+        <div class="header-left">
+            <div class="cell cell-top">
+            <!-- Top-left content: text and/or image -->
+            <div class="title">
+                    <div><a href="/">mrozanski</a></div>
+                    <div class="site-name"><a href="/"><span class="first-cap">B</span>uild<span class="end-cap">LOG</span></a></div>
+                </div>
+            </div>
+            <div class="border-line border-between-left" aria-hidden="true"></div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-left content -->
+            <p class="site-subtitle">Real projects where I use code, agents, and product thinking to ship faster</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!--div class="border-line border-top-right" aria-hidden="true"></div-->
+            <div class="cell cell-top">
+            <!-- Top-right content -->
+            <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+            </div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-right content (taller) -->
+            <img src="/avatar.png" alt="Author avatar" class="avatar">
+            </div>
+        </div>
+        </div>
+    </header>
+    
+
+    <main>
+        
+
+        <div class="content main-container">
+            
+<article class="post">
+    
+    <h1>Making AI Fit My Workflow (Not the Other Way Around)</h1>
+    
+    <p class="post-subtitle">How I survive model and context switching at scale</p>
+    
+    
+    <div class="byline">
+        <img src="/avatar.png" alt="Author avatar" class="avatar">
+        <div class="byline-text">
+            <span class="author">By Mariano Rozanski</span>
+            <span class="date">Sat, Jan 31, 2026</span>
+        </div>
+    </div>
+    
+
+    <div class="post-content">
+        <p>LLMs made me dramatically more productive—and also dramatically worse at remembering where I left off. When every project can move faster, context becomes the bottleneck. This is how I built a portable second brain that plugs AI into <em>any</em> workflow while keeping humans and models in sync, regardless of which tools or models I’m using.</p>
+<h2>The problem: the context tax</h2>
+<p>I wasn’t losing knowledge. I was paying a recurring <strong>context tax</strong> every time I switched models, took a break, or let a project’s knowledge base grow large enough to be unwieldy.</p>
+<p>That tax shows up as wasted time and broken momentum:</p>
+<ul>
+<li>The first hour back on a project goes to re‑explaining it to a model.</li>
+<li>At the same time, I’m re‑explaining it to <em>myself</em>—finding the latest docs, remembering decisions, reconstructing where I left off.</li>
+<li>If a project evolves inside one model, I usually have to replay those mutations later when I switch to another model or tool.</li>
+</ul>
+<p>The cost isn’t just cognitive load. It’s duplicated effort across humans and machines.</p>
+<h2>A reframing: this isn’t a notes problem</h2>
+<p>For a while I treated this as a note‑taking problem. Better tools. Better structure. Better discipline.</p>
+<p>That helped—but it didn’t solve the core issue.</p>
+<p>What I actually needed was:</p>
+<ul>
+<li>Context that survives time</li>
+<li>Context that survives model switching</li>
+<li>Context that survives tool churn</li>
+<li>And a reliable way to remind <em>myself</em> where I left off</li>
+</ul>
+<p>This last point matters. Nate’s advice to keep a physical notepad on your desk and always write down where you stopped works because it externalizes working memory. I started doing that too. What I wanted was to <strong>fold that habit into my digital workflow</strong>, in a way models could also use.</p>
+<p><img src="/where-i-left-off.jpg" alt="Where I left Off Paper trail"></p>
+<p>In short: I needed a portable second brain designed for <em>humans and models</em>, not just one or the other.</p>
+<h2>The architecture (high level)</h2>
+<p>The system that emerged has four clear roles:</p>
+<ol>
+<li><strong>Capture</strong> – where ideas, notes, and raw material land with minimal friction</li>
+<li><strong>State</strong> – a compact, explicit memory of what matters <em>right now</em></li>
+<li><strong>Storage</strong> – durable, versioned, human‑readable files</li>
+<li><strong>I/O</strong> – any model, on any surface</li>
+</ol>
+<p>None of these pieces are novel on their own. The leverage comes from how they’re composed.</p>
+<h2>Capture: Google Drive (on purpose)</h2>
+<p>This surprised me, but the tool I naturally reach for on my computer—where I do roughly 90% of my work—is Google Drive.</p>
+<p>For long‑running, high‑volume projects, Drive gives me:</p>
+<ul>
+<li>Clear structure</li>
+<li>Strong search</li>
+<li>Cloud‑native access</li>
+<li>Effortless sharing with other humans</li>
+</ul>
+<p>The downside is real. Creating notes in Drive is not low‑friction, especially on mobile. Apps like Bear, Obsidian, or Agenda are better for quick capture.</p>
+<p>And yet, Drive kept winning once projects grew.</p>
+<p>The problem wasn’t the capture UI. The problem was what happened <em>after</em> capture.</p>
+<h2>The friction point: getting Drive content into models</h2>
+<p>As soon as I wanted to use LLMs seriously with my project material, friction exploded:</p>
+<ul>
+<li>Uploading documents one by one into chat UIs</li>
+<li>Re‑sharing files every time something changed</li>
+<li>Broken links when a model “forgot” a document</li>
+<li>Parallel copies of the same knowledge drifting apart</li>
+</ul>
+<p>Drive stopped being passive storage and became an active bottleneck.</p>
+<h2>Solution #1: a Google Drive sync CLI</h2>
+<p>The first breakthrough was simple: <strong>make Drive local</strong>.</p>
+<p>I built a small Python CLI that:</p>
+<ul>
+<li>Connects to the Google Drive API</li>
+<li>Downloads Docs as Markdown and Sheets as CSV</li>
+<li>Keeps a local mirror of selected Drive folders</li>
+</ul>
+<p>I can run it from any directory, point it at a Drive folder, and suddenly my cloud notes are just files on disk.</p>
+<p>This tool ended up being far more important than I expected.</p>
+<p>Why it mattered:</p>
+<ul>
+<li>Local files are trivial to share with any model</li>
+<li>Any tool that can read a filesystem can now read my project context</li>
+<li>I stopped thinking about uploads entirely</li>
+</ul>
+<p>What started as a utility script became a core part of my daily workflow.</p>
+<p><em>Alt: terminal showing a successful Google Drive sync command</em></p>
+<h2>I/O: model‑ and surface‑agnostic by design</h2>
+<p>Once my notes lived locally, I could interact with them from anywhere:</p>
+<ul>
+<li>Claude Desktop</li>
+<li>ChatGPT Desktop</li>
+<li>CLI tools</li>
+<li>IDE assistants</li>
+<li>Whatever comes next</li>
+</ul>
+<p>The rule is simple: <strong>no model gets special treatment</strong>.</p>
+<p>If a tool can read from disk, it can participate.</p>
+<h2>Storage &amp; memory: Project State</h2>
+<p>This still left one unresolved problem: long‑term working memory.</p>
+<p>Even with synced documents, <strong>humans and models both need an explicit way to remember the last meaningful project state when work resumes</strong>.</p>
+<p>Before LLMs, this wasn’t a serious issue. My own attention was the bottleneck. Now I can juggle an order of magnitude more work in parallel—and that makes state loss far more expensive.</p>
+<p>To solve this, I introduced <strong>Project State</strong>.</p>
+<p>Project State is a small, explicit Markdown file that represents the current working memory of a project. It captures:</p>
+<ul>
+<li>Essential context</li>
+<li>Recent decisions</li>
+<li>Where I actually left off</li>
+</ul>
+<p>It lives in a private GitHub repository.</p>
+<p>Why GitHub?</p>
+<ul>
+<li>Full version history</li>
+<li>Easy rollback when humans or models mess things up</li>
+<li>Universally accessible</li>
+<li>Plain text forever</li>
+</ul>
+<p>A minimal Project State file looks like this:</p>
+<pre><code class="language-markdown"># Project: &lt;Name&gt;
+
+&gt; Last updated: YYYY-MM-DD
+
+## Key Context
+
+Essential background any model needs to understand this project.
+
+## Recent Decisions
+
+- Decision: brief rationale
+</code></pre>
+<p>This replaces the scratchpad on my desk full of “where I left off” notes—without losing the benefits of versioning and shareability.</p>
+<h2>How models interact with state</h2>
+<p>Models read and write Project State through a local MCP server.</p>
+<p>That server has access to:</p>
+<ul>
+<li>The GitHub‑synced Project State directory</li>
+<li>The Google Drive‑synced documents directory</li>
+</ul>
+<p>Together, this forms a shared filesystem that both humans and models can operate on.</p>
+<p>From my perspective, the interaction is straightforward:</p>
+<ul>
+<li>“Load state for project X.”</li>
+<li>“Save current state back to project X.”</li>
+</ul>
+<p>Everything else is convention.</p>
+<h2>The superpower: combining capture and state</h2>
+<p>Individually, none of this is revolutionary.</p>
+<p>Together, it changes how projects feel:</p>
+<ul>
+<li>Capture happens where it’s most natural</li>
+<li>State is compact, explicit, and durable</li>
+<li>Models can be swapped without ceremony</li>
+<li>Context survives breaks, experiments, and false starts</li>
+</ul>
+<p>I’m no longer relying on any single vendor to remember what I’m doing. And as a bonus, I don’t need to maintain a fragile pen‑and‑paper workaround to stay oriented.</p>
+<p><img src="/my-setup.png" alt="My AI Workflow Diagram"></p>
+<h2>Lessons learned</h2>
+<ul>
+<li>For long projects, memory beats intelligence</li>
+<li>Plain text scales better than clever abstractions</li>
+<li>Version control is an underrated safety net for AI workflows</li>
+<li>Portability matters more than polish</li>
+</ul>
+<h2>What I’d try next</h2>
+<ul>
+<li>A reliable GitHub MCP server to fully automate state sync</li>
+<li>Better conventions for when models should update Project State</li>
+<li>A lightweight visual diagram of the architecture</li>
+</ul>
+<p>This system isn’t finished. But it finally feels <em>stable</em>—and that alone has been a meaningful upgrade.</p>
+
+    </div>
+</article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wide-container">
+            <div class="join-cta">
+                <ul>
+                    <li><a href="/contact" aria-label="Contact Form">Contact</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
