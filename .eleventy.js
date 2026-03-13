@@ -23,12 +23,9 @@ module.exports = function(eleventyConfig) {
 
   // Pass through copy for static assets
   eleventyConfig.addPassthroughCopy("src/**/*.css");
-  eleventyConfig.addPassthroughCopy("src/**/*.jpg");
-  eleventyConfig.addPassthroughCopy("src/**/*.jpeg");
-  eleventyConfig.addPassthroughCopy("src/**/*.png");
-  eleventyConfig.addPassthroughCopy("src/**/*.gif");
-  eleventyConfig.addPassthroughCopy("src/**/*.svg");
   eleventyConfig.addPassthroughCopy("src/**/*.ico");
+  // All images live under src/assets/ and are copied to /assets/
+  eleventyConfig.addPassthroughCopy("src/assets");
 
   eleventyConfig.addCollection("recentPosts", function(collectionApi) {
     return collectionApi.getAll()

@@ -37,7 +37,7 @@ What I actually needed was:
 
 This last point matters. The simple idea of keeping a physical notepad on your desk and always write down where you stopped works because it externalizes working memory. I started doing that too. What I wanted was to **fold that habit into my digital workflow**, in a way models could also use.
 
-![Where I left Off Paper trail](/where-i-left-off.jpg)
+![Where I left Off Paper trail](/assets/images/posts/where-i-left-off.jpg)
 
 In short: I needed a portable second brain designed for *humans and models*, not just one or the other.
 
@@ -100,7 +100,7 @@ This tool ended up being far more important than I expected because:
 
 What started as a utility script became a core part of my daily workflow.
 
-![Terminal showing a successful Google Drive sync command](/sync-summary.png)
+![Terminal showing a successful Google Drive sync command](/assets/images/posts/sync-summary.png)
 
 ## I/O: model‑ and surface‑agnostic by design
 
@@ -190,7 +190,7 @@ Together, it changes how projects feel:
 
 I’m no longer relying on any single vendor to remember what I’m doing. And as a bonus, I don’t need to maintain a fragile pen‑and‑paper workaround to stay oriented.
 
-![My AI Workflow Diagram](/my-setup.png)
+![My AI Workflow Diagram](/assets/images/posts/my-setup.png)
 
 ## Lessons learned
 

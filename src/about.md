@@ -11,4 +11,4 @@ I run <a href="https://dotsur.co" target="_blank">Dotsur</a>, a software consult
 This site is where I document what I'm actually shipping. Prototypes, experiments, developer tools, consulting work. Anything where I think the process or the result is worth sharing. No polished tutorials or thought leadership; just real projects with real constraints, written up as I go.
 If something here is useful to you, or you want to talk about what I'm working on, [get in touch](/contact).
 
-<img src="/about.jpg" alt="About image" class="about-image" />
+<img src="/assets/images/about.jpg" alt="About image" class="about-image" />

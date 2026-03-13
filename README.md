@@ -45,9 +45,13 @@ A personal blog website built with [Eleventy (11ty)](https://www.11ty.dev/), fea
 │   │   └── *.html        # HTML blog posts
 │   ├── index.html        # Homepage
 │   ├── style.css         # Site stylesheet
-│   ├── 2025.jpg          # Author avatar
-│   └── favicon.ico       # Site favicon
-├── public/               # Generated site (after build)
+│   ├── assets/           # Images and static assets (copied to /assets/)
+│   │   ├── avatar.png    # Site-wide (e.g. header avatar)
+│   │   ├── images/       # Content images (posts, about, etc.)
+│   │   │   └── posts/    # Post-specific images
+│   │   └── social/       # Social/OG images (e.g. og-default.jpg)
+│   └── favicon.ico       # Site favicon (in src root)
+├── _site/                # Generated site (after build)
 ├── .eleventy.js          # Eleventy configuration
 └── package.json          # Node.js dependencies and scripts
 ```
