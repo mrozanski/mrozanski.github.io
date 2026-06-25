@@ -99,6 +99,7 @@ This tool ended up being far more important than I expected because:
 - I stopped thinking about uploads entirely
 
 What started as a utility script became a core part of my daily workflow.
+[I wrote a full breakdown of the implementation on Medium](https://medium.com/@mariano.rozanski/gdrive-sync-turning-google-drive-into-ai-friendly-markdown-18753dc17d04).
 
 ![Terminal showing a successful Google Drive sync command](/assets/images/posts/sync-summary.png)
 
