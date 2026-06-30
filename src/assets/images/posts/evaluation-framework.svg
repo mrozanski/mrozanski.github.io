@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" role="img" aria-labelledby="title desc">
+  <title id="title">Voice pipeline evaluation framework</title>
+  <desc id="desc">Three candidate voice architectures feed student speech samples into a shared evaluation framework that produces engineering scores and decisions.</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#1E80B0"/>
+    </marker>
+    <style>
+      .label { font: 600 15px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #284b63; }
+      .sublabel { font: 400 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #3d3d3d; }
+      .flow { font: 400 11px ui-monospace, monospace; fill: #3c6e71; }
+      .box-title { font: 600 14px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #284b63; }
+      .box-item { font: 400 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #3d3d3d; }
+      .out-label { font: 600 13px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #284b63; }
+    </style>
+  </defs>
+
+  <rect width="820" height="420" rx="8" fill="#f4f6f7" stroke="#d9d9d9"/>
+
+  <rect x="24" y="48" width="210" height="88" rx="6" fill="#ffffff" stroke="#1E80B0" stroke-width="1.5"/>
+  <text x="40" y="72" class="label">Pattern A &#183; Retell AI</text>
+  <text x="40" y="90" class="sublabel">Full-service platform</text>
+  <text x="40" y="116" class="flow">STT &#8594; LLM + KB &#8594; TTS</text>
+
+  <rect x="24" y="166" width="210" height="88" rx="6" fill="#ffffff" stroke="#1E80B0" stroke-width="1.5"/>
+  <text x="40" y="190" class="label">Pattern B &#183; Realtime API</text>
+  <text x="40" y="208" class="sublabel">Native multimodal</text>
+  <text x="40" y="234" class="flow">audio in &#8594; model &#8594; audio out</text>
+
+  <rect x="24" y="284" width="210" height="88" rx="6" fill="#ffffff" stroke="#1E80B0" stroke-width="1.5"/>
+  <text x="40" y="308" class="label">Pattern C &#183; Pipecat</text>
+  <text x="40" y="326" class="sublabel">Build-your-own pipeline</text>
+  <text x="40" y="344" class="flow">Whisper &#8594; GPT-4o Mini</text>
+  <text x="40" y="358" class="flow">&#8594; Cartesia</text>
+
+  <line x1="234" y1="92" x2="298" y2="190" stroke="#1E80B0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="234" y1="210" x2="298" y2="210" stroke="#1E80B0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="234" y1="328" x2="298" y2="230" stroke="#1E80B0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="130" width="260" height="160" rx="6" fill="#ffffff" stroke="#3c6e71" stroke-width="2"/>
+  <text x="318" y="156" class="box-title">Evaluation framework</text>
+  <text x="318" y="182" class="box-item">&#8226; Student speech samples</text>
+  <text x="318" y="204" class="box-item">&#8226; Same lesson context (L3 &#183; Lesson 5)</text>
+  <text x="318" y="226" class="box-item">&#8226; WER &#183; meaning preservation</text>
+  <text x="318" y="248" class="box-item">&#8226; Conversation impact</text>
+  <text x="318" y="270" class="box-item">&#8226; Latency &#183; cost per session</text>
+
+  <line x1="560" y1="210" x2="624" y2="210" stroke="#1E80B0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="626" y="156" width="170" height="108" rx="6" fill="#ffffff" stroke="#284b63" stroke-width="1.5"/>
+  <text x="644" y="182" class="out-label">Scores &amp;</text>
+  <text x="644" y="202" class="out-label">decisions</text>
+  <text x="644" y="228" class="box-item">Compare pipelines</text>
+  <text x="644" y="248" class="box-item">Pick MVP path</text>
+
+  <text x="24" y="28" class="sublabel">Candidate voice pipelines</text>
+</svg>

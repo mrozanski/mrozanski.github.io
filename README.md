@@ -30,7 +30,7 @@ A personal blog website built with [Eleventy (11ty)](https://www.11ty.dev/), fea
    ```bash
    npm run build
    ```
-   Built site will be in the `public/` directory
+   Built site will be in the `_site/` directory
 
 ## Folder Structure
 
@@ -68,38 +68,55 @@ A personal blog website built with [Eleventy (11ty)](https://www.11ty.dev/), fea
 ### Creating a New Blog Post
 
 #### Option 1: Markdown Post
-Create a new `.md` file in `src/posts/`:
+Create a new `.md` file in `src/posts/` with YAML front matter between `---` delimiters:
 
-```markdown
+| Field | Required | Description |
+|-------|----------|-------------|
+| `layout` | Yes | Use `post.njk` for blog posts |
+| `title` | Yes | Post title (shown in `<h1>` and page `<title>`) |
+| `date` | Recommended | Publication date (`YYYY-MM-DD`); used in byline and post listings |
+| `author` | Optional | Shown in the post byline |
+| `subtitle` | Optional | Secondary line under the title |
+| `excerpt` | Recommended | Short summary for the homepage and `/posts/` index; also used as meta description |
+| `permalink` | Optional | Custom URL path (e.g. `/posts/my-post-slug/`) |
+| `heroImage` | Optional | Path to a hero image at the top of the post (e.g. `/assets/images/posts/my-post/hero.jpg`) |
+| `heroImageAlt` | Optional | Alt text for the hero image (defaults to `title`) |
+| `description` | Optional | Override meta description (otherwise `excerpt` is used) |
+| `social_image` | Optional | Custom Open Graph / Twitter image (defaults to `/assets/social/og-default.png`) |
+| `tags` | Optional | Metadata only; not rendered in templates yet |
+| `draft` | Optional | Metadata only; not filtered from builds yet |
+
+Example front matter:
+
+```yaml
 ---
 layout: post.njk
-title: "Your Post Title"
+title: "Making AI Fit My Workflow (Not the Other Way Around)"
+subtitle: "How I survive model and context switching at scale"
 author: "Mariano Rozanski"
-date: 2025-09-23
-tags: ["tag1", "tag2"]
+date: 2026-01-31
+excerpt: "A portable, model-agnostic second brain that keeps humans and models in sync across tools and time."
+permalink: "/posts/making-AI-fit-my-workflow/"
+tags: [ai, workflow, automation]
+draft: true
 ---
-
-Your post content here using **Markdown** syntax.
-
-## Headings work
-- Lists work
-- Code blocks work
-
-```javascript
-console.log("Code highlighting works too!");
 ```
-```
+
+Then write the post body in Markdown below the front matter.
 
 #### Option 2: HTML Post
-Create a new `.html` file in `src/posts/`:
+Create a new `.html` file in `src/posts/` with the same front matter fields:
 
 ```html
 ---
 layout: post.njk
 title: "Your Post Title"
+subtitle: "Optional subtitle under the title"
 author: "Mariano Rozanski"
 date: 2025-09-23
-tags: ["tag1", "tag2"]
+excerpt: "Short summary shown on the posts index and in social previews."
+permalink: "/posts/your-post-slug/"
+tags: [tag1, tag2]
 ---
 
 <p>Your post content here using <strong>HTML</strong>.</p>
@@ -154,7 +171,7 @@ jobs:
       - run: npm run build
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: ./public
+          path: ./_site
   deploy:
     needs: build
     runs-on: ubuntu-latest
