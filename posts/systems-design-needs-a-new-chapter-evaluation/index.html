@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  
+  
+  
+  
+  
+  
+
+  <title>
+    The Systems Design Textbook Needs a New Chapter: Evaluation - mrozanski (Mariano's Blog)
+  </title>
+
+  <meta name="description" content="Modern systems design isn&#39;t only about choosing components. Once AI enters the picture, designing the evaluation framework becomes part of the architecture itself.">
+  <meta name="author" content="Mariano Rozanski">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mariano Rozanski&#39;s Build Log">
+  <meta property="og:title" content="The Systems Design Textbook Needs a New Chapter: Evaluation">
+  <meta property="og:description" content="Modern systems design isn&#39;t only about choosing components. Once AI enters the picture, designing the evaluation framework becomes part of the architecture itself.">
+  <meta property="og:url" content="https://mrozanski.github.io/posts/systems-design-needs-a-new-chapter-evaluation/">
+  <meta property="og:image" content="https://mrozanski.github.io/assets/social/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Systems Design Textbook Needs a New Chapter: Evaluation">
+  <meta name="twitter:description" content="Modern systems design isn&#39;t only about choosing components. Once AI enters the picture, designing the evaluation framework becomes part of the architecture itself.">
+  <meta name="twitter:image" content="https://mrozanski.github.io/assets/social/og-default.png">
+  <!-- Optional if you want to wire your handle -->
+  <!-- <meta name="twitter:site" content="@yourhandle"> -->
+  <!-- <meta name="twitter:creator" content="@yourhandle"> -->
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="">
+    <header class="page-header">
+        <div class="header-content">
+        <div class="header-left">
+            <div class="cell cell-top">
+            <!-- Top-left content: text and/or image -->
+            <div class="title">
+                    <div><a href="/">mrozanski</a></div>
+                    <div class="site-name"><a href="/"><span class="first-cap">B</span>uild<span class="end-cap">LOG</span></a></div>
+                </div>
+            </div>
+            <div class="border-line border-between-left" aria-hidden="true"></div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-left content -->
+            <p class="site-subtitle">Real projects where I use code, agents, and product thinking to ship faster</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!--div class="border-line border-top-right" aria-hidden="true"></div-->
+            <div class="cell cell-top">
+            <!-- Top-right content -->
+            <ul class="menu">
+                        <li class="menu-item"><a href="/about/">about</a></li>
+                        <li class="menu-item"><a href="/posts/">posts</a></li>
+                        <li class="menu-item"><a href="/contact/">contact</a></li>
+                    </ul>
+            </div>
+            <div class="cell cell-bottom">
+            <!-- Bottom-right content (taller) -->
+            <img src="/assets/avatar.png" alt="Author avatar" class="avatar">
+            </div>
+        </div>
+        </div>
+    </header>
+    
+
+    <main>
+        
+
+        <div class="content main-container">
+            
+<article class="post">
+    
+    <h1>The Systems Design Textbook Needs a New Chapter: Evaluation</h1>
+    
+    <p class="post-subtitle">AI systems force us to design how we measure success before we can compare architectures.</p>
+    
+    
+    <div class="byline">
+        <img src="/assets/avatar.png" alt="Author avatar" class="avatar">
+        <div class="byline-text">
+            <span class="author">By Mariano Rozanski</span>
+            <span class="date">Mon, Jun 29, 2026</span>
+        </div>
+    </div>
+    
+
+    <div class="post-content">
+        <p>One of my favorite moments in engineering is realizing that something we've accepted for years is quietly becoming outdated. Not wrong. Just incomplete.</p>
+<p>That happened to me recently while thinking about AI systems.</p>
+<p>Most of the systems design material we've all studied assumes something fundamental: before you design the system, you already know what &quot;correct&quot; looks like. The rest of the exercise is choosing components that satisfy the requirements and validating that they behave as expected.</p>
+<p>That assumption starts to fall apart once a non-deterministic model becomes part of the architecture.</p>
+<p>I don't think we've fully updated our mental model yet.</p>
+<h2>Traditional systems start with a definition of correctness</h2>
+<p>In practice, the spec is usually clear enough to write a test against:</p>
+<ul>
+<li>A payment either succeeds or it doesn't.</li>
+<li>A cache either returns the expected value or it doesn't.</li>
+<li>A database query returns the right rows or it doesn't.</li>
+</ul>
+<p>Once correctness is defined, the engineering work becomes selecting the right components, implementing the system, and verifying that it behaves according to the specification.</p>
+<p>The metrics follow naturally.</p>
+<ul>
+<li>Latency</li>
+<li>Availability</li>
+<li>Throughput</li>
+<li>Error rates</li>
+</ul>
+<p>Those metrics aren't particularly controversial because everyone already agrees on what success looks like.</p>
+<h2>AI systems change the order of operations</h2>
+<p>Now imagine you're building a conversational language-learning coach.</p>
+<p>Students speak with the system to practice a new language. The application listens, retrieves the lesson they've completed so far, responds naturally, and stores the conversation so teachers can review their progress later.</p>
+<p>At first glance, this still looks like a familiar systems design problem.</p>
+<ul>
+<li>There are excellent speech recognition providers.</li>
+<li>Excellent language models.</li>
+<li>Excellent text-to-speech vendors.</li>
+</ul>
+<p>Pick the best option for each stage and connect them together.</p>
+<p>Except that isn't really the hard part. The hard part is deciding what &quot;best&quot; actually means.</p>
+<h2>The architecture includes an evaluation system</h2>
+<p>Suppose you're considering several complete pipelines.</p>
+<ul>
+<li>One uses a traditional speech-to-text provider feeding a text-based LLM.</li>
+<li>Another uses an end-to-end audio model.</li>
+<li>A third mixes vendors because one has exceptional tool calling while another consistently produces more natural speech.</li>
+</ul>
+<p>How do you compare them?</p>
+<ul>
+<li>You can certainly benchmark latency and cost.</li>
+<li>You can compare context windows.</li>
+<li>You can measure token usage.</li>
+</ul>
+<p>Eventually, though, every interesting question becomes harder.</p>
+<ul>
+<li>Which pipeline gives better pronunciation feedback?</li>
+<li>Which one keeps conversations flowing naturally?</li>
+<li>Which one helps students learn more effectively?</li>
+<li>Which mistakes matter?</li>
+</ul>
+<p>If I were designing this, I wouldn't start by choosing vendors. I'd start by building an evaluation framework. Every candidate pipeline becomes a hypothesis.</p>
+<ul>
+<li>Feed each one the same representative conversations.</li>
+<li>Capture every output.</li>
+<li>Measure objective signals like latency and cost.</li>
+<li>Run automatic quality checks where possible.</li>
+<li>Use LLM-based judges when appropriate.</li>
+<li>Review ambiguous cases with humans.</li>
+<li>Aggregate the results into something that supports engineering decisions.</li>
+</ul>
+<p>The goal is to build a repeatable process for discovering which complete system performs best for your users.</p>
+<p>That distinction changes the architecture.</p>
+<p><img src="/assets/images/posts/evaluation-framework.svg" alt="Several voice pipelines feeding into a shared evaluation framework"></p>
+<h2>Traditional metrics eventually stop answering the question you care about</h2>
+<p>Speech recognition already has established metrics. Word Error Rate, or WER, is probably the best known. It measures how closely a transcription matches a reference transcript. It's a perfectly reasonable metric. Until it isn't.</p>
+<p>Imagine a beginner Spanish student says:</p>
+<blockquote>
+<p>&quot;Yo... eh... comer...&quot;</p>
+</blockquote>
+<ul>
+<li>Should the transcription preserve every hesitation?</li>
+<li>Should it normalize the sentence?</li>
+<li>Should it infer the intended verb?</li>
+<li>Should it flag the grammatical mistake?</li>
+</ul>
+<p>Every answer could be correct depending on the lesson.</p>
+<ul>
+<li>During a pronunciation exercise, preserving mistakes may be essential.</li>
+<li>During a fluency exercise, interrupting the student might be counterproductive.</li>
+<li>During teacher review, detailed transcripts become much more valuable than polished ones.</li>
+</ul>
+<p>WER doesn't capture any of those tradeoffs.</p>
+<p>I've seen this pattern repeat itself in enough AI systems that it now feels predictable. Teams borrow a metric from a neighboring field because it's available. Eventually they realize they're optimizing the metric instead of the user outcome. That's usually the point where the engineering work becomes genuinely interesting.</p>
+<h2>Evaluation becomes part of the architecture</h2>
+<p>Thinking about AI systems this way changed how I approach system design.</p>
+<p>Instead of thinking about evaluation as something that happens after implementation, I think of it as another subsystem that deserves its own design.</p>
+<ul>
+<li>Representative datasets</li>
+<li>Replay infrastructure</li>
+<li>Prompt versioning</li>
+<li>Regression suites</li>
+<li>Human labeling workflows</li>
+<li>Experiment tracking</li>
+<li>Dashboards</li>
+</ul>
+<p>Without those tools, vendor comparisons aren't repeatable. You can't verify that a release improved quality. And you won't know when something got worse until someone reports it.</p>
+<h2>A different design process</h2>
+<p>The systems design process I learned looked something like this.</p>
+<ol>
+<li>Define correct behavior.</li>
+<li>Build the system.</li>
+<li>Verify that it behaves correctly.</li>
+</ol>
+<p>For AI systems, I've found myself following a different sequence.</p>
+<ol>
+<li>Understand how users experience failure.</li>
+<li>Decide what success actually looks like.</li>
+<li>Design a way to measure that success.</li>
+<li>Build candidate systems.</li>
+<li>Compare them.</li>
+<li>Iterate on both the implementation and the evaluation framework.</li>
+</ol>
+<p>The evaluation framework becomes one of the first architectural decisions.</p>
+<h2>Maybe this belongs in the systems design textbook</h2>
+<p>Distributed systems haven't become less important. Caches, queues, databases, consistency models, and scalability remain fundamental skills. I just think there's another architectural concern that deserves a place beside them.</p>
+<p>When AI becomes part of the system, designing the production pipeline is only half the problem. The other half is designing the system that tells you whether the production pipeline is actually improving or even doing its job.</p>
+<p>Lately, that's become one of the most interesting new engineering problems I've worked on. And I have a feeling it will become a common systems design interview question before long.</p>
+
+    </div>
+</article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wide-container">
+            <div class="join-cta">
+                <ul>
+                    <li><a href="/contact" aria-label="Contact Form">Contact</a></li>
+                    <li><a href="https://github.com/mrozanski" target="_blank" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="/rss.xml" aria-label="RSS">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
